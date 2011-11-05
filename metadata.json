@@ -1,0 +1,8 @@
+{
+   "shell-version": ["3.2"], 
+   "uuid": "islamic-datetime@sabily.org", 
+   "name": "Islamic date/time functions", 
+   "description": "Add Hijri date & prayer times to date menu",
+   "url": "http://sabily.org",
+   "original-authors": "أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>"
+}

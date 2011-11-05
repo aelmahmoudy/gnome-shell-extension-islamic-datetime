@@ -1,0 +1,12 @@
+.gen-prayer-label {
+    color: white;
+}
+
+.current-prayer-label {
+    color: red;
+}
+
+.non-prayer-label {
+    color: cyan;
+}
+
