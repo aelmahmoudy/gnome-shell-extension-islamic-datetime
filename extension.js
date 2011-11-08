@@ -9,9 +9,10 @@ const Itl = imports.gi.Itl;
 const GObject = imports.gi.GObject;
 const Gst = imports.gi.Gst;
 const MessageTray = imports.ui.messageTray;
+const PopupMenu = imports.ui.popupMenu;
 
-/*const Gettext = imports.gettext.domain('gnome-shell');
-const _ = Gettext.gettext;*/
+const Gettext = imports.gettext.domain('islamic-datetime');
+const _ = Gettext.gettext;
 
 function PrayerNotificationSource() {
     this._init();
@@ -51,7 +52,11 @@ IslamicDateTime.prototype = {
       let vbox = new St.BoxLayout({vertical: true});
       dateMenu.menu.addActor(vbox);
 
-      this._hdate = new St.Label();
+      let separator = new PopupMenu.PopupSeparatorMenuItem();
+      separator.setColumnWidths(1);
+      vbox.add(separator.actor, {y_align: St.Align.END, expand: true, y_fill: false});
+
+      this._hdate = new St.Label({style_class: 'datemenu-date-label'});
       vbox.add(this._hdate);
 
       let hbox1 = new St.BoxLayout();
@@ -172,18 +177,18 @@ IslamicDateTime.prototype = {
 function HijriMonthName(HijriMonth)
 {
   switch(HijriMonth) {
-    case 1: return "Muharram";
-    case 2: return "Safar";
-    case 3: return "Rabi' I";
-    case 4: return "Rabi' II";
-    case 5: return "Jumaada I";
-    case 6: return "Jumaada II";
-    case 7: return "Rajab";
-    case 8: return "Shaa'ban";
-    case 9: return "Ramadan";
-    case 10: return "Shawwaal";
-    case 11: return "Thul Qi'dah";
-    case 12: return "Thul Hijjah";
+    case 1: return _("Muharram");
+    case 2: return _("Safar");
+    case 3: return _("Rabi' I");
+    case 4: return _("Rabi' II");
+    case 5: return _("Jumaada I");
+    case 6: return _("Jumaada II");
+    case 7: return _("Rajab");
+    case 8: return _("Shaa'ban");
+    case 9: return _("Ramadan");
+    case 10: return _("Shawwaal");
+    case 11: return _("Thul Qi'dah");
+    case 12: return _("Thul Hijjah");
   }
   return undefined;
 }
@@ -191,12 +196,12 @@ function HijriMonthName(HijriMonth)
 function PrayerName(PrayerIdx)
 {
   switch(PrayerIdx) {
-    case 0: return "Fajr";
-    case 1: return "Shurooq";
-    case 2: return "Dhuhr";
-    case 3: return "'Asr";
-    case 4: return "Maghrib";
-    case 5: return "'Ishaa";
+    case 0: return _("Fajr");
+    case 1: return _("Shurooq");
+    case 2: return _("Dhuhr");
+    case 3: return _("'Asr");
+    case 4: return _("Maghrib");
+    case 5: return _("'Ishaa");
   }
   return undefined;
 }
