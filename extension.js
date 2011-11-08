@@ -71,8 +71,7 @@ IslamicDateTime.prototype = {
       Gst.init(null);
       this._playbin = Gst.ElementFactory.make('playbin2', 'play');
       this._playbin.set_state(Gst.State.NULL);
-      this._playbin.uri = 'file:///home/ant1/Audio/اذان عبد الباسط عبد الصمد.ogg';
-      this._playerLoop = GLib.MainLoop.new(null, false);
+      this._playbin.uri = 'file:///home/ant1/Audio/azan.ogg';
 
       this._updateDateTime();
     },
@@ -86,8 +85,8 @@ IslamicDateTime.prototype = {
 
       // Get prayer times:
       let PrayerObj = new Itl.Prayer();
-      PrayerObj.setMethod(Itl.Method.EGYPTIAN_EG); // Egyptian survey method
-      PrayerObj.setLocation(30.05, 31.7, 2, 0); // Location for Cairo
+      PrayerObj.setMethod(Itl.Method.EGYPT_NEW); // Egyptian survey method
+      PrayerObj.setLocation(30.13, 31.4, 2, 0); // Location for Cairo
       let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
       let PrayerList = PrayerObj.getPrayerTimes(today);
 
@@ -110,7 +109,7 @@ IslamicDateTime.prototype = {
         }
       }
       if(PrayerIdx == 6) {
-        // logic to support the case that now > Isha (which is before midnight):
+        // Case that now > Isha (which is before midnight):
         PrayerIdx = 0;
         PrayerList[0] = PrayerObj.getNextDayFajr(today);
         this._PrayerLabel[0].set_text(" " + PrayerName(0) + ": " + PrayerList[0].get_hour() + ":" + PrayerList[0].get_minute());
@@ -125,16 +124,15 @@ IslamicDateTime.prototype = {
       }
       this._RemLabel.set_text(' ' + RemStr + ' left for ' + PrayerName(PrayerIdx) + ' prayer');
 
-      // TODO: add logic to play azan when now = prayertime
+      // Play azan when now = prayertime
       if(RemMins == 5) {
         this._notify(this._RemLabel.get_text(), true);
       }
-      else if(RemMins == (8*60+39)) {
+      else if(RemMins == 0) {
         this._RemLabel.set_text('Time now for ' + PrayerName(PrayerIdx) +  ' prayer', false);
         this._notify(this._RemLabel.get_text());
 
-       // this._playAzan();
-        Mainloop.timeout_add_seconds(1, Lang.bind(this, this._playAzan));
+        this._playAzan();
       }
 
       Mainloop.timeout_add_seconds(60, Lang.bind(this, this._updateDateTime));
@@ -165,12 +163,9 @@ IslamicDateTime.prototype = {
     },
 
     _playAzan: function() {
-      //this._playerLoop.quit();
-      //Mainloop.timeout_add_seconds(300, Lang.bind(this, function() { this._playerLoop.quit(); }));
       this._playbin.set_state(Gst.State.NULL);
       this._playbin.set_state(Gst.State.PLAYING);
-      //this._playerLoop.run();
-      return false;
+      //return false;
     }
 };
 
