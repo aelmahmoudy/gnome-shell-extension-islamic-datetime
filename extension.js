@@ -163,14 +163,21 @@ IslamicDateTime.prototype = {
       }
 
       notification.setTransient(isTransient);
+      if(!isTransient) {
+        notification.addButton('stop-azan', _("Stop azan"));
+        notification.connect('action-invoked', Lang.bind(this, this._stopAzan()));
+      }
 
       this._source.notify(notification);
+    },
+
+    _stopAzan: function() {
+      this._playbin.set_state(Gst.State.NULL);
     },
 
     _playAzan: function() {
       this._playbin.set_state(Gst.State.NULL);
       this._playbin.set_state(Gst.State.PLAYING);
-      //return false;
     }
 };
 
