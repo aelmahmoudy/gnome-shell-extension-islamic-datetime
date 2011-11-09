@@ -1,1 +1,1 @@
-Depends: gir1.2-itl- , gir1.2-gstreamer-0.10
+Depends: gir1.2-itl-1.0 , gir1.2-gstreamer-0.10

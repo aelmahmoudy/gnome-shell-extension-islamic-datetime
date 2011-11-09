@@ -91,7 +91,7 @@ IslamicDateTime.prototype = {
       // Get prayer times:
       let PrayerObj = new Itl.Prayer();
       PrayerObj.setMethod(Itl.Method.EGYPT_NEW); // Egyptian survey method
-      PrayerObj.setLocation(30.13, 31.4, 2, 0); // Location for Cairo
+      PrayerObj.setLocation(31.4, 30.13, 2, 0); // Location for Cairo
       let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
       let PrayerList = PrayerObj.getPrayerTimes(today);
 
