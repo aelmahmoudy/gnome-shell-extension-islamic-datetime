@@ -1,0 +1,23 @@
+* Use settings from Minbar's GConf keys
+  + Add button for configuration
+* Kittouni's suggestions
+  + Hijri date above Gregorian date
+  + Two lines: one for prayers, one for other times
+* Add midnight, last 1/3 night times
+* Hijri calendar
+* Add icon: minaret ?
+
+Configuration:
+* Option to use ~/.iprayrc or Minbar config or local config
+* Disable Minbar option if GConf dir not existant
+* Basic tab (disabled if not using local config)
+  + Location & method config
+* Notification tab (disabled if using Minbar config)
+* Advanced tab (disabled if using ~/.iprayrc)
+
+Power saving logic:
+* Only compute prayer times once:
+  + After today's Isha time: NextDayFajr
+  + At new day: all prayertimes
+* @every minute: just check remaining minutes
+* redo all above at clock change or resume
