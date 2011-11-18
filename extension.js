@@ -10,10 +10,12 @@ const GObject = imports.gi.GObject;
 const Gst = imports.gi.Gst;
 const MessageTray = imports.ui.messageTray;
 const PopupMenu = imports.ui.popupMenu;
+const Gio = imports.gi.Gio;
 
 const Gettext = imports.gettext.domain('islamic-datetime');
 const _ = Gettext.gettext;
 
+const CONFIG_SCHEMA = 'org.gnome.shell.extensions.islamic-datetime';
 function PrayerNotificationSource() {
     this._init();
 }
@@ -78,6 +80,23 @@ IslamicDateTime.prototype = {
       this._playbin.set_state(Gst.State.NULL);
       this._playbin.uri = 'file:///home/ant1/Audio/azan.ogg';
 
+      this._PrayerObj = new Itl.Prayer();
+      this._config();
+    },
+
+    _config: function() {
+      if (Gio.Settings.list_schemas().indexOf(CONFIG_SCHEMA) == -1)
+          throw _("Schema \"%s\" not found.").format(CONFIG_SCHEMA);
+      let settings = new Gio.Settings({ schema: CONFIG_SCHEMA });
+
+      this._PrayerObj.degree_long= settings.get_double('longitude');
+      this._PrayerObj.degree_lat= settings.get_double('latitude');
+      this._PrayerObj.gmt_diff = settings.get_double('gmt-diff');
+      this._PrayerObj.dst = settings.get_boolean('dst');
+
+      this._PrayerObj.setMethod(settings.get_enum('method'));
+      //this._PrayerObj.setLocation(longitude, latitude, gmtDiff, dst);
+
       this._updateDateTime();
     },
 
@@ -86,14 +105,11 @@ IslamicDateTime.prototype = {
 
       // Get Hijri date:
       let dd = Itl.h_date(now.getDate(), now.getMonth()+1, now.getFullYear());
-      this._hdate.set_text(" " + dd.get_day() + " " + HijriMonthName(dd.get_month()) + " " + dd.get_year()+"\t");
+      this._hdate.set_text(" " + dd.get_day() + " " + HijriMonthName(dd.get_month()) + " " + dd.get_year());
 
       // Get prayer times:
-      let PrayerObj = new Itl.Prayer();
-      PrayerObj.setMethod(Itl.Method.EGYPT_NEW); // Egyptian survey method
-      PrayerObj.setLocation(31.4, 30.13, 2, 0); // Location for Cairo
       let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
-      let PrayerList = PrayerObj.getPrayerTimes(today);
+      let PrayerList = this._PrayerObj.getPrayerTimes(today);
 
       let nowMins = now.getHours() * 60 + now.getMinutes();
 
@@ -116,7 +132,7 @@ IslamicDateTime.prototype = {
       if(PrayerIdx == 6) {
         // Case that now > Isha (which is before midnight):
         PrayerIdx = 0;
-        PrayerList[0] = PrayerObj.getNextDayFajr(today);
+        PrayerList[0] = this._PrayerObj.getNextDayFajr(today);
         this._PrayerLabel[0].set_text(" " + PrayerName(0) + ": " + PrayerList[0].get_hour() + ":" + PrayerList[0].get_minute());
         RemMins = 24*60 - nowMins + PrayerList[0].get_hour()*60 + PrayerList[0].get_minute();
       }
@@ -165,7 +181,7 @@ IslamicDateTime.prototype = {
       notification.setTransient(isTransient);
       if(!isTransient) {
         notification.addButton('stop-azan', _("Stop azan"));
-        notification.connect('action-invoked', Lang.bind(this, this._stopAzan()));
+        notification.connect('action-invoked', Lang.bind(this, this._stopAzan));
       }
 
       this._source.notify(notification);

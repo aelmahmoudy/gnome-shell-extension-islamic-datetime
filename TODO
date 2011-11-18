@@ -6,6 +6,7 @@
 * Add midnight, last 1/3 night times
 * Hijri calendar
 * Add icon: minaret ?
+* Autoconfigure using GeoClue/geocode ?
 
 Configuration:
 * Option to use ~/.iprayrc or Minbar config or local config

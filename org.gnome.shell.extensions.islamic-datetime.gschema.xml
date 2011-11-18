@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extension-islamic-datetime">
+  <enum id="org.gnome.shell.extensions.islamic-datetime.method">
+    <value value="1" nick="egypt-survey"/>
+    <value value="2" nick="karachi-shaf"/>
+    <value value="3" nick="karachi-hanaf"/>
+    <value value="4" nick="north-america"/>
+    <value value="5" nick="muslim-league"/>
+    <value value="6" nick="umm-alqurra"/>
+    <value value="7" nick="fixed-ishaa"/>
+    <value value="8" nick="egypt-new"/>
+  </enum>
+  <schema path="/org/gnome/shell/extensions/islamic-datetime/" id="org.gnome.shell.extensions.islamic-datetime">
+    <key name="method" enum="org.gnome.shell.extensions.islamic-datetime.method">
+      <default>'egypt-survey'</default>
+      <summary>Calculation method</summary>
+      <description>Choose the prayer time calculation method. Allowed values are 'egypt-survey', 'karachi-shaf', 'karachi-hanaf', 'north-america', 'muslim-league', 'umm-alqurra', 'fixed-ishaa' or 'egypt-new'.</description>
+    </key>
+    <key type="d" name="longitude">
+      <default>0</default>
+      <summary>Longitude</summary>
+      <description>Set the locations longitude.</description>
+    </key>
+    <key type="d" name="latitude">
+      <default>0</default>
+      <summary>Latitude</summary>
+      <description>Set the locations latitude.</description>
+    </key>
+    <key type="d" name="gmt-diff">
+      <default>0</default>
+      <summary>Time zone</summary>
+      <description>Set the locations timezone.</description>
+    </key>
+    <key type="b" name="dst">
+      <default>false</default>
+      <summary>DST</summary>
+      <description>Enable DST.</description>
+    </key>
+    <key type="s" name="azan-file">
+      <default>''</default>
+      <summary>Azan audio file</summary>
+      <description>Audio file to play azan.</description>
+    </key>
+  </schema>
+</schemalist>
