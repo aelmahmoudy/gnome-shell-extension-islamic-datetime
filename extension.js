@@ -151,18 +151,18 @@ IslamicDateTime.prototype = {
 
       this._PrayerLabel[PrayerIdx].style_class = 'current-prayer-label';
 
-      let RemStr = RemMins + ' minutes';
+      let RemStr = _("%d minutes").format(RemMins);
       if(RemMins >= 60) {
-        RemStr = Math.floor(RemMins/60) + ' hrs ' + RemMins%60 + ' minutes';
+        RemStr = _("%d hours %d minutes").format(Math.floor(RemMins/60), RemMins%60);
       }
-      this._RemLabel.set_text(' ' + RemStr + ' left for ' + PrayerName(PrayerIdx) + ' prayer');
+      this._RemLabel.set_text( _(" %s left for %s prayer").format(RemStr, PrayerName(PrayerIdx)) );
 
       // Play azan when now = prayertime
       if(RemMins == 5) {
         this._notify(this._RemLabel.get_text(), true);
       }
       else if(RemMins == 0) {
-        this._RemLabel.set_text('Time now for ' + PrayerName(PrayerIdx) +  ' prayer', false);
+        this._RemLabel.set_text( _("Time now for %s prayer").format(PrayerName(PrayerIdx)), false );
         this._notify(this._RemLabel.get_text());
 
         this._playAzan();

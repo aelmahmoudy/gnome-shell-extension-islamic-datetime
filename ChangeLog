@@ -1,0 +1,99 @@
+commit 13a2211aba77cd5f10b4eeda2e94a97cd8de9e3c
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 23:48:44 2011 +0200
+
+    Add i18n support
+    
+    * Change some strings in extension.js to support i18n
+    * Added Arabic translation
+
+commit e7faea53bd0771f8f782de2055de84c099d28456
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 22:26:07 2011 +0200
+
+    Further TODO items
+
+commit ff40d357e90493464933dfecc7300673f89e1764
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 21:41:18 2011 +0200
+
+    Update TODO items
+
+commit 310e5f838b08552107673082bf396686abaf5785
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 21:36:27 2011 +0200
+
+    Use file chooser dialog to select azan file
+    
+    Also use azan-file from GSettings
+
+commit af1ff60881cd82106ad2fc70ef4e22e580903e83
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 12:50:27 2011 +0200
+
+    Better labels for prayer time calculation methods
+
+commit eacce7e85a2990feecaa7f4be777627c9762164c
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 12:39:49 2011 +0200
+
+    Connect notify-resume signal to _updateDateTime method, and gsettings'
+    'changed' signal to _config method
+
+commit e9688964ca0ae7052ebe23caf4c2b00184156831
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 19 07:10:00 2011 +0200
+
+    Add configuration button
+
+commit 2d4436d2611826bb37e72d6eeb1923dd1cd8398c
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Fri Nov 18 20:38:36 2011 +0200
+
+    * Fix callback for stopAzan
+    * Use GSettings configuration backend
+      + Added schema
+      + Added configuration script
+
+commit f40c7988ea8ecb523508cb6c25e5dfe520796161
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Wed Nov 9 23:06:00 2011 +0200
+
+    Added TODO file
+
+commit 679a068c03adb611ac9d17145f0cb14c72066734
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Wed Nov 9 18:24:27 2011 +0200
+
+    Added 'Stop azan' button in notification
+
+commit 2d702f51bb335502c7bddb1faea50f40ddf013c5
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Wed Nov 9 15:53:27 2011 +0200
+
+    Silly me, latitutde & longitude were reversed !
+
+commit 7f4c947e75d4a79ac55e03fc38086e24c180f47e
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Tue Nov 8 16:32:04 2011 +0200
+
+    * Started i18n
+    * Add separator after original dateMenu items
+
+commit 6205ef5be5367f8bf4da39a389580413946bb175
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Tue Nov 8 13:08:27 2011 +0200
+
+    Fixed (& simplified) azan player logic
+
+commit 1d436edd6f19df708b40b9ae42686dd4e59f15e6
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Mon Nov 7 22:56:04 2011 +0200
+
+    Use enum
+
+commit e8ddfa5fc2c8202f8d053ceba02fef96dfb23f43
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sat Nov 5 17:32:36 2011 +0200
+
+    Initial release
