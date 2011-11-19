@@ -1,3 +1,4 @@
+* i18n
 * Kittouni's suggestions
   + Hijri date above Gregorian date
   + Two lines: one for prayers, one for other times
@@ -5,6 +6,7 @@
 * Hijri calendar
 * Add icon: minaret ?
 * Autoconfigure using GeoClue/geocode ?
+* enable/disable methods
 
 Configuration:
 * Option to use ~/.iprayrc or local config
