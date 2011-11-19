@@ -73,6 +73,28 @@ class WeatherConfigurator:
         self.add_label(label, tooltip)
         self.elements.append(entry)
 
+    def add_filechooser(self, key, label, tooltip=None):
+        def choosefile(tb, pos, event):
+            filechooser = Gtk.FileChooserDialog(label, self.window, Gtk.FileChooserAction.OPEN)
+            filechooser.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL)
+            filechooser.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK)
+            filefilter = Gtk.FileFilter();
+            filefilter.add_mime_type('audio/*');
+            filechooser.add_filter(filefilter);
+            if filechooser.run() == Gtk.ResponseType.OK:
+                tb.set_text(filechooser.get_filename())
+                self.schema.set_string(key, filechooser.get_filename())
+            filechooser.destroy()
+
+        entry = Gtk.Entry()
+        entry.set_text(self.schema.get_string(key))
+        entry.set_icon_from_stock(Gtk.EntryIconPosition.PRIMARY, Gtk.STOCK_OPEN)
+        #entry.connect('activate', set)
+        entry.connect('icon-press', choosefile)
+        self.add_tooltip(entry, tooltip)
+        self.add_label(label, tooltip)
+        self.elements.append(entry)
+
     def add_radio(self, key, label, items, tooltip=None):
         def set(rb):
             if rb.get_active():
@@ -125,7 +147,7 @@ class WeatherConfigurator:
                         'Egyptian General Authority of Survey (Egypt)'],
                        "Choose the prayer time calculation method")
         self.add_check('dst', 'DST', "Enable DST")
-        self.add_text('azan-file', 'Azan audio file', "Audio file to play azan")
+        self.add_filechooser('azan-file', 'Azan audio file', "Audio file to play azan")
 
         table = Gtk.Table(rows=len(self.elements)/2, columns=2, homogeneous=False)
         for (idx,el) in enumerate(self.elements):

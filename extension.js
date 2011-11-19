@@ -87,7 +87,6 @@ IslamicDateTime.prototype = {
       Gst.init(null);
       this._playbin = Gst.ElementFactory.make('playbin2', 'play');
       this._playbin.set_state(Gst.State.NULL);
-      this._playbin.uri = 'file:///home/ant1/Audio/azan.ogg';
 
       this._PrayerObj = new Itl.Prayer();
       this._config();
@@ -100,6 +99,8 @@ IslamicDateTime.prototype = {
         this._settings = new Gio.Settings({ schema: CONFIG_SCHEMA });
         this._settings.connect('changed', Lang.bind(this, this._config));
       }
+
+      this._playbin.uri = 'file://' + this._settings.get_string('azan-file');
 
       this._PrayerObj.degree_long = this._settings.get_double('longitude');
       this._PrayerObj.degree_lat = this._settings.get_double('latitude');
