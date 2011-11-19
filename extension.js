@@ -82,6 +82,8 @@ IslamicDateTime.prototype = {
       });
       hbox2.add(item.actor, {x_align: St.Align.END, expand: true, x_fill: false});
 
+      dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
+
       Gst.init(null);
       this._playbin = Gst.ElementFactory.make('playbin2', 'play');
       this._playbin.set_state(Gst.State.NULL);
@@ -92,17 +94,19 @@ IslamicDateTime.prototype = {
     },
 
     _config: function() {
-      if (Gio.Settings.list_schemas().indexOf(CONFIG_SCHEMA) == -1)
-          throw _("Schema \"%s\" not found.").format(CONFIG_SCHEMA);
-      let settings = new Gio.Settings({ schema: CONFIG_SCHEMA });
+      if(this._settings == null) {
+        if (Gio.Settings.list_schemas().indexOf(CONFIG_SCHEMA) == -1)
+            throw _("Schema \"%s\" not found.").format(CONFIG_SCHEMA);
+        this._settings = new Gio.Settings({ schema: CONFIG_SCHEMA });
+        this._settings.connect('changed', Lang.bind(this, this._config));
+      }
 
-      this._PrayerObj.degree_long= settings.get_double('longitude');
-      this._PrayerObj.degree_lat= settings.get_double('latitude');
-      this._PrayerObj.gmt_diff = settings.get_double('gmt-diff');
-      this._PrayerObj.dst = settings.get_boolean('dst');
+      this._PrayerObj.degree_long = this._settings.get_double('longitude');
+      this._PrayerObj.degree_lat = this._settings.get_double('latitude');
+      this._PrayerObj.gmt_diff = this._settings.get_double('gmt-diff');
+      this._PrayerObj.dst = this._settings.get_boolean('dst');
 
-      this._PrayerObj.setMethod(settings.get_enum('method'));
-      //this._PrayerObj.setLocation(longitude, latitude, gmtDiff, dst);
+      this._PrayerObj.setMethod(this._settings.get_enum('method'));
 
       this._updateDateTime();
     },
