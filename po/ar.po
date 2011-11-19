@@ -1,0 +1,126 @@
+# Arabic translation
+# Copyright (C) 2011 أحمد المحمودي (Ahmed El-Mahmoudy)
+# This file is distributed under the same license as the islamic-datetime package.
+# أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: islamic-datetime 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-19 23:13+0200\n"
+"PO-Revision-Date: 2011-11-19 23:44+0200\n"
+"Last-Translator: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../extension.js:28
+msgid "Salat"
+msgstr "الصلاة"
+
+#: ../extension.js:79
+msgid "Islamic Date/Time functions settings"
+msgstr "إعدادات"
+
+#: ../extension.js:98
+#, c-format
+msgid "Schema \"%s\" not found."
+msgstr ""
+
+#: ../extension.js:154
+#, c-format
+msgid "%d minutes"
+msgstr "%d دقيقة"
+
+#: ../extension.js:156
+#, c-format
+msgid "%d hours %d minutes"
+msgstr "%d ساعة و %d دقيقة"
+
+#: ../extension.js:158
+#, c-format
+msgid " %s left for %s prayer"
+msgstr "باق %s حتى صلاة %s"
+
+#: ../extension.js:165
+#, c-format
+msgid "Time now for %s prayer"
+msgstr "حان الآن وقت صلاة %s"
+
+#: ../extension.js:195
+msgid "Stop azan"
+msgstr "إيقاف الأذان"
+
+#: ../extension.js:215
+msgid "Muharram"
+msgstr "محرم"
+
+#: ../extension.js:216
+msgid "Safar"
+msgstr "صفر"
+
+#: ../extension.js:217
+msgid "Rabi' I"
+msgstr "ربيع الأول"
+
+#: ../extension.js:218
+msgid "Rabi' II"
+msgstr "ربيع الثاني"
+
+#: ../extension.js:219
+msgid "Jumaada I"
+msgstr "جمادى الأولى"
+
+#: ../extension.js:220
+msgid "Jumaada II"
+msgstr "جمادى الثانية"
+
+#: ../extension.js:221
+msgid "Rajab"
+msgstr "رجب"
+
+#: ../extension.js:222
+msgid "Shaa'ban"
+msgstr "شعبان"
+
+#: ../extension.js:223
+msgid "Ramadan"
+msgstr "رمضان"
+
+#: ../extension.js:224
+msgid "Shawwaal"
+msgstr "شوال"
+
+#: ../extension.js:225
+msgid "Thul Qi'dah"
+msgstr "ذو القعدة"
+
+#: ../extension.js:226
+msgid "Thul Hijjah"
+msgstr "ذو الحجة"
+
+#: ../extension.js:234
+msgid "Fajr"
+msgstr "الفجر"
+
+#: ../extension.js:235
+msgid "Shurooq"
+msgstr "الشروق"
+
+#: ../extension.js:236
+msgid "Dhuhr"
+msgstr "الظهر"
+
+#: ../extension.js:237
+msgid "'Asr"
+msgstr "العصر"
+
+#: ../extension.js:238
+msgid "Maghrib"
+msgstr "المغرب"
+
+#: ../extension.js:239
+msgid "'Ishaa"
+msgstr "العشاء"

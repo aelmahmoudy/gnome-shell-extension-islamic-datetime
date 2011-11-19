@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-19 23:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../extension.js:28
+msgid "Salat"
+msgstr ""
+
+#: ../extension.js:79
+msgid "Islamic Date/Time functions settings"
+msgstr ""
+
+#: ../extension.js:98
+#, c-format
+msgid "Schema \"%s\" not found."
+msgstr ""
+
+#: ../extension.js:154
+#, c-format
+msgid "%d minutes"
+msgstr ""
+
+#: ../extension.js:156
+#, c-format
+msgid "%d hours %d minutes"
+msgstr ""
+
+#: ../extension.js:158
+#, c-format
+msgid " %s left for %s prayer"
+msgstr ""
+
+#: ../extension.js:165
+#, c-format
+msgid "Time now for %s prayer"
+msgstr ""
+
+#: ../extension.js:195
+msgid "Stop azan"
+msgstr ""
+
+#: ../extension.js:215
+msgid "Muharram"
+msgstr ""
+
+#: ../extension.js:216
+msgid "Safar"
+msgstr ""
+
+#: ../extension.js:217
+msgid "Rabi' I"
+msgstr ""
+
+#: ../extension.js:218
+msgid "Rabi' II"
+msgstr ""
+
+#: ../extension.js:219
+msgid "Jumaada I"
+msgstr ""
+
+#: ../extension.js:220
+msgid "Jumaada II"
+msgstr ""
+
+#: ../extension.js:221
+msgid "Rajab"
+msgstr ""
+
+#: ../extension.js:222
+msgid "Shaa'ban"
+msgstr ""
+
+#: ../extension.js:223
+msgid "Ramadan"
+msgstr ""
+
+#: ../extension.js:224
+msgid "Shawwaal"
+msgstr ""
+
+#: ../extension.js:225
+msgid "Thul Qi'dah"
+msgstr ""
+
+#: ../extension.js:226
+msgid "Thul Hijjah"
+msgstr ""
+
+#: ../extension.js:234
+msgid "Fajr"
+msgstr ""
+
+#: ../extension.js:235
+msgid "Shurooq"
+msgstr ""
+
+#: ../extension.js:236
+msgid "Dhuhr"
+msgstr ""
+
+#: ../extension.js:237
+msgid "'Asr"
+msgstr ""
+
+#: ../extension.js:238
+msgid "Maghrib"
+msgstr ""
+
+#: ../extension.js:239
+msgid "'Ishaa"
+msgstr ""
