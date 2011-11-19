@@ -1,5 +1,3 @@
-* Use settings from Minbar's GConf keys
-  + Add button for configuration
 * Kittouni's suggestions
   + Hijri date above Gregorian date
   + Two lines: one for prayers, one for other times
@@ -9,11 +7,10 @@
 * Autoconfigure using GeoClue/geocode ?
 
 Configuration:
-* Option to use ~/.iprayrc or Minbar config or local config
-* Disable Minbar option if GConf dir not existant
+* Option to use ~/.iprayrc or local config
+* Option to import Minbar settings
 * Basic tab (disabled if not using local config)
   + Location & method config
-* Notification tab (disabled if using Minbar config)
 * Advanced tab (disabled if using ~/.iprayrc)
 
 Power saving logic:
