@@ -32,6 +32,7 @@ an alternative of dconf-editor
 """
 
 from gi.repository import Gtk, Gio, Gdk
+import gettext
 
 class WeatherConfigurator:
 
@@ -127,27 +128,27 @@ class WeatherConfigurator:
         self.schema = Gio.Settings('org.gnome.shell.extensions.islamic-datetime')
         keys = self.schema.keys()
 
-        self.window = Gtk.Window(title='Gnome Shell: Islamic Date/Time Configurator')
+        self.window = Gtk.Window(title=_("Gnome Shell: Islamic Date/Time Configurator"))
         self.window.connect('destroy', Gtk.main_quit)
         self.window.connect('key-press-event', self.keypress)
 
         self.elements = []
 
-        self.add_double('longitude', 'Longitude', 'Set the locations longitude')
-        self.add_double('latitude', 'Latitude', 'Set the locations latitude')
-        self.add_double('gmt-diff', 'Time zone', 'Set the locations timezone')
-        self.add_radio('method', 'Calculation method',
-                       ['Egyptian General Authority of Survey',
-                        'University of Islamic Sciences, Karachi (Shaf\'i)',
-                        'University of Islamic Sciences, Karachi (Hanafi)',
-                        'Islamic Society of North America',
-                        'Muslim World League',
-                        'Umm Al-Qurra',
-                        'Fixed Ishaa Interval (always 90)',
-                        'Egyptian General Authority of Survey (Egypt)'],
-                       "Choose the prayer time calculation method")
-        self.add_check('dst', 'DST', "Enable DST")
-        self.add_filechooser('azan-file', 'Azan audio file', "Audio file to play azan")
+        self.add_double('longitude', _("Longitude"), _("Set the locations longitude"))
+        self.add_double('latitude', _("Latitude"), _("Set the locations latitude"))
+        self.add_double('gmt-diff', _("Time zone"), _("Set the locations timezone"))
+        self.add_radio('method', _("Calculation method"),
+                       [_("Egyptian General Authority of Survey"),
+                        _("University of Islamic Sciences, Karachi (Shaf\'i)"),
+                        _("University of Islamic Sciences, Karachi (Hanafi)"),
+                        _("Islamic Society of North America"),
+                        _("Muslim World League"),
+                        _("Umm Al-Qurra"),
+                        _("Fixed Ishaa Interval (always 90)"),
+                        _("Egyptian General Authority of Survey (Egypt)")],
+                       _("Choose the prayer time calculation method"))
+        self.add_check('dst', _("DST"), _("Enable DST"))
+        self.add_filechooser('azan-file', _("Azan audio file"), _("Audio file to play azan"))
 
         table = Gtk.Table(rows=len(self.elements)/2, columns=2, homogeneous=False)
         for (idx,el) in enumerate(self.elements):
@@ -162,6 +163,7 @@ class WeatherConfigurator:
         self.window.show_all()
 
 def main():
+    gettext.install('islamic-datetime')
     WeatherConfigurator()
     Gtk.main()
 

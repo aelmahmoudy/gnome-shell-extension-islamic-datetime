@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-19 23:13+0200\n"
+"POT-Creation-Date: 2011-11-20 01:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,4 +124,88 @@ msgstr ""
 
 #: ../extension.js:239
 msgid "'Ishaa"
+msgstr ""
+
+#: ../islamic-datetime-config:131
+msgid "Gnome Shell: Islamic Date/Time Configurator"
+msgstr ""
+
+#: ../islamic-datetime-config:137
+msgid "Longitude"
+msgstr ""
+
+#: ../islamic-datetime-config:137
+msgid "Set the locations longitude"
+msgstr ""
+
+#: ../islamic-datetime-config:138
+msgid "Latitude"
+msgstr ""
+
+#: ../islamic-datetime-config:138
+msgid "Set the locations latitude"
+msgstr ""
+
+#: ../islamic-datetime-config:139
+msgid "Time zone"
+msgstr ""
+
+#: ../islamic-datetime-config:139
+msgid "Set the locations timezone"
+msgstr ""
+
+#: ../islamic-datetime-config:140
+msgid "Calculation method"
+msgstr ""
+
+#: ../islamic-datetime-config:141
+msgid "Egyptian General Authority of Survey"
+msgstr ""
+
+#: ../islamic-datetime-config:142
+msgid "University of Islamic Sciences, Karachi (Shaf'i)"
+msgstr ""
+
+#: ../islamic-datetime-config:143
+msgid "University of Islamic Sciences, Karachi (Hanafi)"
+msgstr ""
+
+#: ../islamic-datetime-config:144
+msgid "Islamic Society of North America"
+msgstr ""
+
+#: ../islamic-datetime-config:145
+msgid "Muslim World League"
+msgstr ""
+
+#: ../islamic-datetime-config:146
+msgid "Umm Al-Qurra"
+msgstr ""
+
+#: ../islamic-datetime-config:147
+msgid "Fixed Ishaa Interval (always 90)"
+msgstr ""
+
+#: ../islamic-datetime-config:148
+msgid "Egyptian General Authority of Survey (Egypt)"
+msgstr ""
+
+#: ../islamic-datetime-config:149
+msgid "Choose the prayer time calculation method"
+msgstr ""
+
+#: ../islamic-datetime-config:150
+msgid "DST"
+msgstr ""
+
+#: ../islamic-datetime-config:150
+msgid "Enable DST"
+msgstr ""
+
+#: ../islamic-datetime-config:151
+msgid "Azan audio file"
+msgstr ""
+
+#: ../islamic-datetime-config:151
+msgid "Audio file to play azan"
 msgstr ""

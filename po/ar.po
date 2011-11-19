@@ -7,9 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: islamic-datetime 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-19 23:13+0200\n"
+"POT-Creation-Date: 2011-11-20 01:34+0200\n"
 "PO-Revision-Date: 2011-11-19 23:44+0200\n"
-"Last-Translator: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>>\n"
+"Last-Translator: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily."
+"org>>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -124,3 +125,87 @@ msgstr "المغرب"
 #: ../extension.js:239
 msgid "'Ishaa"
 msgstr "العشاء"
+
+#: ../islamic-datetime-config:131
+msgid "Gnome Shell: Islamic Date/Time Configurator"
+msgstr ""
+
+#: ../islamic-datetime-config:137
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: ../islamic-datetime-config:137
+msgid "Set the locations longitude"
+msgstr ""
+
+#: ../islamic-datetime-config:138
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: ../islamic-datetime-config:138
+msgid "Set the locations latitude"
+msgstr ""
+
+#: ../islamic-datetime-config:139
+msgid "Time zone"
+msgstr "منطقة التوقيت"
+
+#: ../islamic-datetime-config:139
+msgid "Set the locations timezone"
+msgstr ""
+
+#: ../islamic-datetime-config:140
+msgid "Calculation method"
+msgstr "طريقة الحساب"
+
+#: ../islamic-datetime-config:141
+msgid "Egyptian General Authority of Survey"
+msgstr "هيئة المساحة المصرية"
+
+#: ../islamic-datetime-config:142
+msgid "University of Islamic Sciences, Karachi (Shaf'i)"
+msgstr "جامعة العلوم الإسلامية، كراتشي (شافعي)"
+
+#: ../islamic-datetime-config:143
+msgid "University of Islamic Sciences, Karachi (Hanafi)"
+msgstr "جامعة العلوم الإسلامية، كراتشي (حنفي)"
+
+#: ../islamic-datetime-config:144
+msgid "Islamic Society of North America"
+msgstr "الجمعية الإسلامية لأمريكا الشمالية"
+
+#: ../islamic-datetime-config:145
+msgid "Muslim World League"
+msgstr "رابطة العالم الإسلامي"
+
+#: ../islamic-datetime-config:146
+msgid "Umm Al-Qurra"
+msgstr "أم القرى"
+
+#: ../islamic-datetime-config:147
+msgid "Fixed Ishaa Interval (always 90)"
+msgstr ""
+
+#: ../islamic-datetime-config:148
+msgid "Egyptian General Authority of Survey (Egypt)"
+msgstr "هيئة المساحة المصرية (مصر)"
+
+#: ../islamic-datetime-config:149
+msgid "Choose the prayer time calculation method"
+msgstr ""
+
+#: ../islamic-datetime-config:150
+msgid "DST"
+msgstr "التوقيت الصيفي"
+
+#: ../islamic-datetime-config:150
+msgid "Enable DST"
+msgstr ""
+
+#: ../islamic-datetime-config:151
+msgid "Azan audio file"
+msgstr "الملف الصوتي للأذان"
+
+#: ../islamic-datetime-config:151
+msgid "Audio file to play azan"
+msgstr ""
