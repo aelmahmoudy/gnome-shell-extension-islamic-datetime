@@ -114,7 +114,16 @@ class WeatherConfigurator:
         self.add_double('longitude', 'Longitude', 'Set the locations longitude')
         self.add_double('latitude', 'Latitude', 'Set the locations latitude')
         self.add_double('gmt-diff', 'Time zone', 'Set the locations timezone')
-        self.add_radio('method', 'Calculation method', ['egypt-survey', 'karachi-shaf', 'karachi-hanaf', 'north-america', 'muslim-league', 'umm-alqurra', 'fixed-ishaa', 'egypt-new'], "Choose the prayer time calculation method")
+        self.add_radio('method', 'Calculation method',
+                       ['Egyptian General Authority of Survey',
+                        'University of Islamic Sciences, Karachi (Shaf\'i)',
+                        'University of Islamic Sciences, Karachi (Hanafi)',
+                        'Islamic Society of North America',
+                        'Muslim World League',
+                        'Umm Al-Qurra',
+                        'Fixed Ishaa Interval (always 90)',
+                        'Egyptian General Authority of Survey (Egypt)'],
+                       "Choose the prayer time calculation method")
         self.add_check('dst', 'DST', "Enable DST")
         self.add_text('azan-file', 'Azan audio file', "Audio file to play azan")
 
