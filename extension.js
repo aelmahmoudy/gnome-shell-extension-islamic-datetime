@@ -11,6 +11,7 @@ const Gst = imports.gi.Gst;
 const MessageTray = imports.ui.messageTray;
 const PopupMenu = imports.ui.popupMenu;
 const Gio = imports.gi.Gio;
+const Util = imports.misc.util;
 
 const Gettext = imports.gettext.domain('islamic-datetime');
 const _ = Gettext.gettext;
@@ -74,6 +75,12 @@ IslamicDateTime.prototype = {
       vbox.add(hbox2);
       this._RemLabel = new St.Label();
       hbox2.add(this._RemLabel);
+
+      let item = new PopupMenu.PopupMenuItem(_("Islamic Date/Time functions settings"));
+      item.connect('activate', function() {
+          Util.spawn(["islamic-datetime-config"]);
+      });
+      hbox2.add(item.actor, {x_align: St.Align.END, expand: true, x_fill: false});
 
       Gst.init(null);
       this._playbin = Gst.ElementFactory.make('playbin2', 'play');
