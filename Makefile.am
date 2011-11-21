@@ -11,3 +11,6 @@ dist_extension_DATA = extension.js stylesheet.css metadata.json
 gsettings_SCHEMAS=org.gnome.shell.extensions.islamic-datetime.gschema.xml
 
 @GSETTINGS_RULES@
+
+dist_bin_SCRIPTS = islamic-datetime-config
+
