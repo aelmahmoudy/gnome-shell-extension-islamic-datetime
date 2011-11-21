@@ -1,3 +1,21 @@
+commit e6b269331f5bad148c1c917f0367e59b8e1e104d
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Mon Nov 21 10:34:33 2011 +0200
+
+    Install islamic-datetime-config script in bindir
+
+commit 5a9349f5ba7b84a168e053c8e3e46d97cc1824b7
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sun Nov 20 01:43:40 2011 +0200
+
+    Add i18n to islamic-datetime-config utility
+
+commit 7707e5e30a6651e6e3105286fafc8ef80c0827b9
+Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
+Date:   Sun Nov 20 00:55:37 2011 +0200
+
+    Use autoconf/automake/intltool
+
 commit 13a2211aba77cd5f10b4eeda2e94a97cd8de9e3c
 Author: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>
 Date:   Sat Nov 19 23:48:44 2011 +0200
