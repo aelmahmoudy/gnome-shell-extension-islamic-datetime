@@ -126,7 +126,7 @@ IslamicDateTime.prototype = {
       let nowMins = now.getHours() * 60 + now.getMinutes();
 
       for(let i=0; i<6; i++) {
-        this._PrayerLabel[i].set_text("\t" + PrayerName(i) + ": " + PrayerList[i].get_hour() + ":" + PrayerList[i].get_minute());
+        this._PrayerLabel[i].set_text("\t" + PrayerName(i) + ": " + PrayerList[i].get_hour() + ":" + ("%02d").format(PrayerList[i].get_minute()));
         this._PrayerLabel[i].style_class = 'gen-prayer-label';
       }
       this._PrayerLabel[1].style_class = 'non-prayer-label';
