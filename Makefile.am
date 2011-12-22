@@ -14,3 +14,5 @@ gsettings_SCHEMAS=org.gnome.shell.extensions.islamic-datetime.gschema.xml
 
 dist_bin_SCRIPTS = islamic-datetime-config
 
+icondir = $(datadir)/icons/hicolor/scalable/apps
+icon_DATA = islamic-datetime.svg

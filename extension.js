@@ -31,7 +31,7 @@ PrayerNotificationSource.prototype = {
     },
 
     createNotificationIcon: function() {
-        return new St.Icon({ icon_name: 'minbar',
+        return new St.Icon({ icon_name: 'islamic-datetime',
                              icon_type: St.IconType.FULLCOLOR,
                              icon_size: this.ICON_SIZE });
     },

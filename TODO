@@ -7,6 +7,14 @@
 * Add icon: minaret ?
 * Autoconfigure using GeoClue/geocode ?
 * enable/disable methods
+* Add events (9th/10th Muharram, Dhul-Hijjah days, ...)
+* Features from Bilal:
+  + Takbeer in both Eids (@ startup only ?)
+  + accurately setting the lunar calendar through the internet ?
+  + مسحراتي
+  + Manual setting of prayertimes ?
+* Qiblah ?
+* Manual fix for Hijri date
 
 Configuration:
 * Option to use ~/.iprayrc or local config
@@ -14,6 +22,7 @@ Configuration:
 * Basic tab (disabled if not using local config)
   + Location & method config
 * Advanced tab (disabled if using ~/.iprayrc)
+* Country database (from monajat-data's cities.db)
 
 Power saving logic:
 * Only compute prayer times once:
