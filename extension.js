@@ -108,6 +108,8 @@ IslamicDateTime.prototype = {
       this._PrayerObj.dst = this._settings.get_boolean('dst');
 
       this._PrayerObj.setMethod(this._settings.get_enum('method'));
+      
+      this._HijriFix = this._settings.get_int('hijri-fix');
 
       this._updateDateTime();
     },
@@ -116,7 +118,8 @@ IslamicDateTime.prototype = {
       let now = new Date();
 
       // Get Hijri date:
-      let dd = Itl.h_date(now.getDate(), now.getMonth()+1, now.getFullYear());
+      let pnow = new Date(now.getTime() + this._HijriFix*24*60*60*1000);
+      let dd = Itl.h_date(pnow.getDate(), pnow.getMonth()+1, pnow.getFullYear());
       this._hdate.set_text(" " + dd.get_day() + " " + HijriMonthName(dd.get_month()) + " " + dd.get_year());
 
       // Get prayer times:

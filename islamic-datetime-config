@@ -74,6 +74,16 @@ class WeatherConfigurator:
         self.add_label(label, tooltip)
         self.elements.append(entry)
 
+    def add_int(self, key, label, tooltip=None):
+        def set(tb):
+            self.schema.set_int(key, int(tb.get_text()))
+        entry = Gtk.Entry()
+        entry.set_text(str(self.schema.get_int(key)))
+        entry.connect('activate', set)
+        self.add_tooltip(entry, tooltip)
+        self.add_label(label, tooltip)
+        self.elements.append(entry)
+
     def add_filechooser(self, key, label, tooltip=None):
         def choosefile(tb, pos, event):
             filechooser = Gtk.FileChooserDialog(label, self.window, Gtk.FileChooserAction.OPEN)
@@ -149,6 +159,7 @@ class WeatherConfigurator:
                        _("Choose the prayer time calculation method"))
         self.add_check('dst', _("DST"), _("Enable DST"))
         self.add_filechooser('azan-file', _("Azan audio file"), _("Audio file to play azan"))
+        self.add_int('hijri-fix', _("Hijri date fix"), _("Manual fix for Hijri date"))
 
         table = Gtk.Table(rows=len(self.elements)/2, columns=2, homogeneous=False)
         for (idx,el) in enumerate(self.elements):

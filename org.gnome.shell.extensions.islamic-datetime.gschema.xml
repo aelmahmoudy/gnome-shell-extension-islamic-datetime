@@ -41,5 +41,10 @@
       <summary>Azan audio file</summary>
       <description>Audio file to play azan.</description>
     </key>
+    <key type="i" name="hijri-fix">
+      <default>0</default>
+      <summary>Hijri date fix</summary>
+      <description>Manual fix for Hijri date calculation.</description>
+    </key>
   </schema>
 </schemalist>

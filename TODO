@@ -4,7 +4,6 @@
   + Two lines: one for prayers, one for other times
 * Add midnight, last 1/3 night times
 * Hijri calendar
-* Add icon: minaret ?
 * Autoconfigure using GeoClue/geocode ?
 * enable/disable methods
 * Add events (9th/10th Muharram, Dhul-Hijjah days, ...)
@@ -14,7 +13,6 @@
   + مسحراتي
   + Manual setting of prayertimes ?
 * Qiblah ?
-* Manual fix for Hijri date
 
 Configuration:
 * Option to use ~/.iprayrc or local config
