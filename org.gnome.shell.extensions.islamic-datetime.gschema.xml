@@ -43,8 +43,8 @@
     </key>
     <key type="i" name="hijri-fix">
       <default>0</default>
-      <summary>Hijri date fix</summary>
-      <description>Manual fix for Hijri date calculation.</description>
+      <summary>Hijri date correction</summary>
+      <description>Manual correction for Hijri date calculation.</description>
     </key>
   </schema>
 </schemalist>

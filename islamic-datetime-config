@@ -159,7 +159,7 @@ class WeatherConfigurator:
                        _("Choose the prayer time calculation method"))
         self.add_check('dst', _("DST"), _("Enable DST"))
         self.add_filechooser('azan-file', _("Azan audio file"), _("Audio file to play azan"))
-        self.add_int('hijri-fix', _("Hijri date fix"), _("Manual fix for Hijri date"))
+        self.add_int('hijri-fix', _("Hijri date correction"), _("Manual correction for Hijri date calculation"))
 
         table = Gtk.Table(rows=len(self.elements)/2, columns=2, homogeneous=False)
         for (idx,el) in enumerate(self.elements):
