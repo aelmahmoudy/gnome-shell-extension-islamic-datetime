@@ -1,6 +1,9 @@
 {
-   "shell-version": ["3.2"], 
+   "shell-version": ["3.2", "3.4"], 
+   "extension-id": "islamic-datetime",
    "uuid": "islamic-datetime@sabily.org", 
+   "settings-schema": "org.gnome.shell.extensions.islamic-datetime",
+   "gettext-domain": "islamic-datetime",
    "name": "Islamic date/time functions", 
    "description": "Add Hijri date & prayer times to date menu",
    "url": "http://sabily.org",

@@ -10,13 +10,15 @@ const GObject = imports.gi.GObject;
 const Gst = imports.gi.Gst;
 const MessageTray = imports.ui.messageTray;
 const PopupMenu = imports.ui.popupMenu;
-const Gio = imports.gi.Gio;
 const Util = imports.misc.util;
 
 const Gettext = imports.gettext.domain('islamic-datetime');
 const _ = Gettext.gettext;
 
-const CONFIG_SCHEMA = 'org.gnome.shell.extensions.islamic-datetime';
+const ExtensionUtils = imports.misc.extensionUtils;
+const Me = ExtensionUtils.getCurrentExtension();
+const Convenience = Me.imports.convenience;
+
 function PrayerNotificationSource() {
     this._init();
 }
@@ -94,9 +96,7 @@ IslamicDateTime.prototype = {
 
     _config: function() {
       if(this._settings == null) {
-        if (Gio.Settings.list_schemas().indexOf(CONFIG_SCHEMA) == -1)
-            throw _("Schema \"%s\" not found.").format(CONFIG_SCHEMA);
-        this._settings = new Gio.Settings({ schema: CONFIG_SCHEMA });
+        this._settings = Convenience.getSettings();
         this._settings.connect('changed', Lang.bind(this, this._config));
       }
 
@@ -108,7 +108,7 @@ IslamicDateTime.prototype = {
       this._PrayerObj.dst = this._settings.get_boolean('dst');
 
       this._PrayerObj.setMethod(this._settings.get_enum('method'));
-      
+
       this._HijriFix = this._settings.get_int('hijri-fix');
 
       this._updateDateTime();
@@ -246,6 +246,7 @@ function PrayerName(PrayerIdx)
 
 function init(metadata) {
 
+  Convenience.initTranslations();
   new IslamicDateTime();
 
 }
