@@ -60,6 +60,7 @@ class WeatherConfigurator:
         entry = Gtk.Entry()
         entry.set_text(self.schema.get_string(key))
         entry.connect('activate', set)
+        entry.connect('focus-out-event', lambda x, y: set(x))
         self.add_tooltip(entry, tooltip)
         self.add_label(label, tooltip)
         self.elements.append(entry)
@@ -70,6 +71,7 @@ class WeatherConfigurator:
         entry = Gtk.Entry()
         entry.set_text(str(self.schema.get_double(key)))
         entry.connect('activate', set)
+        entry.connect('focus-out-event', lambda x, y: set(x))
         self.add_tooltip(entry, tooltip)
         self.add_label(label, tooltip)
         self.elements.append(entry)
@@ -80,6 +82,7 @@ class WeatherConfigurator:
         entry = Gtk.Entry()
         entry.set_text(str(self.schema.get_int(key)))
         entry.connect('activate', set)
+        entry.connect('focus-out-event', lambda x, y: set(x))
         self.add_tooltip(entry, tooltip)
         self.add_label(label, tooltip)
         self.elements.append(entry)
@@ -108,18 +111,17 @@ class WeatherConfigurator:
 
     def add_radio(self, key, label, items, tooltip=None):
         def set(rb):
-            if rb.get_active():
-                self.schema.set_enum(key, items.index(rb.get_label())+1)
+            self.schema.set_enum(key, (rb.get_active())+1)
         vbox = Gtk.VBox()
-        buttonFirst = None
         active = self.schema.get_enum(key)
+        combo = Gtk.ComboBoxText()
         for (idx,item) in enumerate(items,1):
-            button = Gtk.RadioButton(group=buttonFirst, label=item)
-            if not(buttonFirst): buttonFirst = button
-            button.set_active(active == idx)
-            button.connect('toggled', set)
-            self.add_tooltip(button, tooltip)
-            vbox.add(button)
+            combo.append_text(item)
+
+        combo.set_active(active-1)
+        combo.connect('changed', set)
+        vbox.add(combo)
+
         self.add_label(label, tooltip)
         self.elements.append(vbox)
 
