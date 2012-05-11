@@ -6,7 +6,7 @@ uuid = islamic-datetime@sabily.org
 
 extensiondir = $(topextensiondir)/$(uuid)
 
-dist_extension_DATA = extension.js stylesheet.css metadata.json convenience.js
+dist_extension_DATA = extension.js stylesheet.css metadata.json convenience.js prefs.js
 
 gsettings_SCHEMAS=org.gnome.shell.extensions.islamic-datetime.gschema.xml
 

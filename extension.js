@@ -1,6 +1,7 @@
 /* -*- mode: js2; js2-basic-offset: 4; indent-tabs-mode: nil -*- */
 
 const St = imports.gi.St;
+const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Main = imports.ui.main;
 const Lang = imports.lang;
@@ -80,7 +81,17 @@ IslamicDateTime.prototype = {
 
       let item = new PopupMenu.PopupMenuItem(_("Islamic Date/Time functions settings"));
       item.connect('activate', function() {
-          Util.spawn(["islamic-datetime-config"]);
+          //Util.spawn(["islamic-datetime-config"]);
+        // TODO: delete proxy, array & variant ?
+        let proxy = new Gio.DBusProxy({ g_connection: Gio.DBus.session,
+		      g_name: 'org.gnome.Shell',
+		      g_object_path: '/org/gnome/Shell',
+		      g_interface_name: 'org.gnome.Shell',
+          g_flags: (Gio.DBusProxyFlags.NONE) });
+        let vary = new Array();
+        vary[0] = GLib.Variant.new_string(Me.metadata.uuid);
+        let variant = GLib.Variant.new_tuple(vary, 1);
+        proxy.call("LaunchExtensionPrefs", variant, Gio.DBusCallFlags.NONE, -1, null, null, null);
       });
       hbox2.add(item.actor, {x_align: St.Align.END, expand: true, x_fill: false});
 
@@ -91,6 +102,7 @@ IslamicDateTime.prototype = {
       this._playbin.set_state(Gst.State.NULL);
 
       this._PrayerObj = new Itl.Prayer();
+
       this._config();
     },
 
