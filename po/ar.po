@@ -157,19 +157,19 @@ msgstr "طريقة الحساب"
 
 #: ../islamic-datetime-config:153 ../prefs.js:17
 msgid "Egyptian General Authority of Survey"
-msgstr "هيئة المساحة المصرية"
+msgstr "الهيئة المصرية العامة للمساحة"
 
 #: ../islamic-datetime-config:154 ../prefs.js:18
 msgid "University of Islamic Sciences, Karachi (Shaf'i)"
-msgstr "جامعة العلوم الإسلامية، كراتشي (شافعي)"
+msgstr "جامعة العلوم الإسلامية - كراتشي (شافعي)"
 
 #: ../islamic-datetime-config:155 ../prefs.js:19
 msgid "University of Islamic Sciences, Karachi (Hanafi)"
-msgstr "جامعة العلوم الإسلامية، كراتشي (حنفي)"
+msgstr "جامعة العلوم الإسلامية - كراتشي (حنفي)"
 
 #: ../islamic-datetime-config:156 ../prefs.js:20
 msgid "Islamic Society of North America"
-msgstr "الجمعية الإسلامية لأمريكا الشمالية"
+msgstr "الجمعية الإسلامية لشمال أمريكا"
 
 #: ../islamic-datetime-config:157 ../prefs.js:21
 msgid "Muslim World League"
@@ -177,15 +177,15 @@ msgstr "رابطة العالم الإسلامي"
 
 #: ../islamic-datetime-config:158 ../prefs.js:22
 msgid "Umm Al-Qurra"
-msgstr "أم القرى"
+msgstr "تقويم أم القرى"
 
 #: ../islamic-datetime-config:159 ../prefs.js:23
 msgid "Fixed Ishaa Interval (always 90)"
-msgstr ""
+msgstr "فاصل عشاء ثابت (دائما 90)"
 
 #: ../islamic-datetime-config:160 ../prefs.js:24
 msgid "Egyptian General Authority of Survey (Egypt)"
-msgstr "هيئة المساحة المصرية (مصر)"
+msgstr "الهيئة المصرية العامة للمساحة (مصر)"
 
 #: ../islamic-datetime-config:161 ../prefs.js:54
 msgid "Choose the prayer time calculation method"
