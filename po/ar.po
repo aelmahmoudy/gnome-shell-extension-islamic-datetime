@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: islamic-datetime 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-20 01:34+0200\n"
+"POT-Creation-Date: 2012-05-11 11:12+0200\n"
 "PO-Revision-Date: 2011-11-19 23:44+0200\n"
 "Last-Translator: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily."
 "org>>\n"
@@ -17,195 +17,200 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../extension.js:28
+#: ../extension.js:31
 msgid "Salat"
 msgstr "الصلاة"
 
-#: ../extension.js:79
+#: ../extension.js:82
 msgid "Islamic Date/Time functions settings"
 msgstr "إعدادات"
 
-#: ../extension.js:98
-#, c-format
-msgid "Schema \"%s\" not found."
-msgstr ""
-
-#: ../extension.js:154
+#: ../extension.js:169
 #, c-format
 msgid "%d minutes"
 msgstr "%d دقيقة"
 
-#: ../extension.js:156
+#: ../extension.js:171
 #, c-format
 msgid "%d hours %d minutes"
 msgstr "%d ساعة و %d دقيقة"
 
-#: ../extension.js:158
+#: ../extension.js:173
 #, c-format
 msgid " %s left for %s prayer"
 msgstr "باق %s حتى صلاة %s"
 
-#: ../extension.js:165
+#: ../extension.js:180
 #, c-format
 msgid "Time now for %s prayer"
 msgstr "حان الآن وقت صلاة %s"
 
-#: ../extension.js:195
+#: ../extension.js:210
 msgid "Stop azan"
 msgstr "إيقاف الأذان"
 
-#: ../extension.js:215
+#: ../extension.js:230
 msgid "Muharram"
 msgstr "محرم"
 
-#: ../extension.js:216
+#: ../extension.js:231
 msgid "Safar"
 msgstr "صفر"
 
-#: ../extension.js:217
+#: ../extension.js:232
 msgid "Rabi' I"
 msgstr "ربيع الأول"
 
-#: ../extension.js:218
+#: ../extension.js:233
 msgid "Rabi' II"
 msgstr "ربيع الثاني"
 
-#: ../extension.js:219
+#: ../extension.js:234
 msgid "Jumaada I"
 msgstr "جمادى الأولى"
 
-#: ../extension.js:220
+#: ../extension.js:235
 msgid "Jumaada II"
 msgstr "جمادى الثانية"
 
-#: ../extension.js:221
+#: ../extension.js:236
 msgid "Rajab"
 msgstr "رجب"
 
-#: ../extension.js:222
+#: ../extension.js:237
 msgid "Shaa'ban"
 msgstr "شعبان"
 
-#: ../extension.js:223
+#: ../extension.js:238
 msgid "Ramadan"
 msgstr "رمضان"
 
-#: ../extension.js:224
+#: ../extension.js:239
 msgid "Shawwaal"
 msgstr "شوال"
 
-#: ../extension.js:225
+#: ../extension.js:240
 msgid "Thul Qi'dah"
 msgstr "ذو القعدة"
 
-#: ../extension.js:226
+#: ../extension.js:241
 msgid "Thul Hijjah"
 msgstr "ذو الحجة"
 
-#: ../extension.js:234
+#: ../extension.js:249
 msgid "Fajr"
 msgstr "الفجر"
 
-#: ../extension.js:235
+#: ../extension.js:250
 msgid "Shurooq"
 msgstr "الشروق"
 
-#: ../extension.js:236
+#: ../extension.js:251
 msgid "Dhuhr"
 msgstr "الظهر"
 
-#: ../extension.js:237
+#: ../extension.js:252
 msgid "'Asr"
 msgstr "العصر"
 
-#: ../extension.js:238
+#: ../extension.js:253
 msgid "Maghrib"
 msgstr "المغرب"
 
-#: ../extension.js:239
+#: ../extension.js:254
 msgid "'Ishaa"
 msgstr "العشاء"
 
-#: ../islamic-datetime-config:131
+#: ../islamic-datetime-config:143
 msgid "Gnome Shell: Islamic Date/Time Configurator"
 msgstr ""
 
-#: ../islamic-datetime-config:137
+#. **  Location   **
+#: ../islamic-datetime-config:149 ../prefs.js:42
 msgid "Longitude"
 msgstr "خط الطول"
 
-#: ../islamic-datetime-config:137
+#: ../islamic-datetime-config:149
 msgid "Set the locations longitude"
-msgstr ""
+msgstr "ضبط خط الطول لموقعك"
 
-#: ../islamic-datetime-config:138
+#: ../islamic-datetime-config:150 ../prefs.js:44
 msgid "Latitude"
 msgstr "خط العرض"
 
-#: ../islamic-datetime-config:138
+#: ../islamic-datetime-config:150 ../prefs.js:43
 msgid "Set the locations latitude"
-msgstr ""
+msgstr "ضبط خط العرض لموقعك"
 
-#: ../islamic-datetime-config:139
+#: ../islamic-datetime-config:151 ../prefs.js:47
 msgid "Time zone"
 msgstr "منطقة التوقيت"
 
-#: ../islamic-datetime-config:139
+#: ../islamic-datetime-config:151 ../prefs.js:45 ../prefs.js:48
 msgid "Set the locations timezone"
-msgstr ""
+msgstr "ضبط منطقة التوقيت لموقعك"
 
-#: ../islamic-datetime-config:140
+#. **  Method   **
+#: ../islamic-datetime-config:152 ../prefs.js:53
 msgid "Calculation method"
 msgstr "طريقة الحساب"
 
-#: ../islamic-datetime-config:141
+#: ../islamic-datetime-config:153 ../prefs.js:17
 msgid "Egyptian General Authority of Survey"
 msgstr "هيئة المساحة المصرية"
 
-#: ../islamic-datetime-config:142
+#: ../islamic-datetime-config:154 ../prefs.js:18
 msgid "University of Islamic Sciences, Karachi (Shaf'i)"
 msgstr "جامعة العلوم الإسلامية، كراتشي (شافعي)"
 
-#: ../islamic-datetime-config:143
+#: ../islamic-datetime-config:155 ../prefs.js:19
 msgid "University of Islamic Sciences, Karachi (Hanafi)"
 msgstr "جامعة العلوم الإسلامية، كراتشي (حنفي)"
 
-#: ../islamic-datetime-config:144
+#: ../islamic-datetime-config:156 ../prefs.js:20
 msgid "Islamic Society of North America"
 msgstr "الجمعية الإسلامية لأمريكا الشمالية"
 
-#: ../islamic-datetime-config:145
+#: ../islamic-datetime-config:157 ../prefs.js:21
 msgid "Muslim World League"
 msgstr "رابطة العالم الإسلامي"
 
-#: ../islamic-datetime-config:146
+#: ../islamic-datetime-config:158 ../prefs.js:22
 msgid "Umm Al-Qurra"
 msgstr "أم القرى"
 
-#: ../islamic-datetime-config:147
+#: ../islamic-datetime-config:159 ../prefs.js:23
 msgid "Fixed Ishaa Interval (always 90)"
 msgstr ""
 
-#: ../islamic-datetime-config:148
+#: ../islamic-datetime-config:160 ../prefs.js:24
 msgid "Egyptian General Authority of Survey (Egypt)"
 msgstr "هيئة المساحة المصرية (مصر)"
 
-#: ../islamic-datetime-config:149
+#: ../islamic-datetime-config:161 ../prefs.js:54
 msgid "Choose the prayer time calculation method"
-msgstr ""
+msgstr "ضبط طريقة حساب مواقيت الصلاة"
 
-#: ../islamic-datetime-config:150
+#: ../islamic-datetime-config:162 ../prefs.js:50
 msgid "DST"
 msgstr "التوقيت الصيفي"
 
-#: ../islamic-datetime-config:150
+#: ../islamic-datetime-config:162 ../prefs.js:50
 msgid "Enable DST"
-msgstr ""
+msgstr "تنشيط التوقيت الصيفي"
 
-#: ../islamic-datetime-config:151
+#: ../islamic-datetime-config:163 ../prefs.js:56
 msgid "Azan audio file"
 msgstr "الملف الصوتي للأذان"
 
-#: ../islamic-datetime-config:151
+#: ../islamic-datetime-config:163 ../prefs.js:57
 msgid "Audio file to play azan"
-msgstr ""
+msgstr "الملف الصوتي للأذان"
+
+#: ../islamic-datetime-config:164 ../prefs.js:58
+msgid "Hijri date correction"
+msgstr "تصحيح التاريخ الهجري"
+
+#: ../islamic-datetime-config:164 ../prefs.js:59
+msgid "Manual correction for Hijri date calculation"
+msgstr "تصحيح يدوي للتاريخ الهجري"
