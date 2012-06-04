@@ -57,6 +57,7 @@ IslamicDateTime.prototype = {
 
       let vbox = new St.BoxLayout({vertical: true});
       dateMenu.menu.addActor(vbox);
+      this._vbox = vbox;
 
       let separator = new PopupMenu.PopupSeparatorMenuItem();
       separator.setColumnWidths(1);
@@ -221,6 +222,11 @@ IslamicDateTime.prototype = {
     _playAzan: function() {
       this._playbin.set_state(Gst.State.NULL);
       this._playbin.set_state(Gst.State.PLAYING);
+    },
+
+    _destroy: function() {
+      dateMenu._upClient.disconnect('notify-resume', Lang.bind(this, this._updateDateTime));
+      this._vbox.destroy();
     }
 };
 
@@ -256,9 +262,16 @@ function PrayerName(PrayerIdx)
   return undefined;
 }
 
+let IslamicDateTimeMenu;
+
 function init(metadata) {
-
   Convenience.initTranslations();
-  new IslamicDateTime();
+}
 
+function enable() {
+  IslamicDateTimeMenu = new IslamicDateTime();
+}
+
+function disable() {
+  IslamicDateTimeMenu._destroy();
 }
