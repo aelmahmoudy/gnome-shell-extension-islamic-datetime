@@ -80,8 +80,14 @@ IslamicDateTime.prototype = {
       this._RemLabel = new St.Label();
       hbox2.add(this._RemLabel);
 
-      let item = new PopupMenu.PopupMenuItem(_("Islamic Date/Time functions settings"));
-      item.connect('activate', function() {
+      let icon = new St.Icon ({icon_type: St.IconType.FULLCOLOR,
+                               icon_size: 16,
+                               icon_name: 'system-run'
+                              });
+      let button = new St.Button();
+      button.add_actor(icon);
+
+      button.connect('clicked', function() {
           //Util.spawn(["islamic-datetime-config"]);
         // TODO: delete proxy, array & variant ?
         let proxy = new Gio.DBusProxy({ g_connection: Gio.DBus.session,
@@ -94,7 +100,7 @@ IslamicDateTime.prototype = {
         let variant = GLib.Variant.new_tuple(vary, 1);
         proxy.call("LaunchExtensionPrefs", variant, Gio.DBusCallFlags.NONE, -1, null, null, null);
       });
-      hbox2.add(item.actor, {x_align: St.Align.END, expand: true, x_fill: false});
+      hbox2.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
 
       this._notify_resumeId = dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
       this._timeoutId = 0;
