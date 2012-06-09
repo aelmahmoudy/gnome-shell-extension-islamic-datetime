@@ -16,5 +16,10 @@ icondir = $(datadir)/icons/hicolor/scalable/apps
 icon_DATA = islamic-datetime.svg
 
 zip-file:
+	make -C po install itlocaledir=$(CURDIR)/locale
 	glib-compile-schemas schemas
-	zip -qr islamic-datetime.zip $(dist_extension_DATA) $(icon_DATA) schemas/ po/*.po* COPYING
+	zip -qr islamic-datetime.zip $(dist_extension_DATA) $(icon_DATA) schemas/ locale/ COPYING
+
+clean-local:
+	-rm -f schemas/gschemas.compiled islamic-datetime.zip
+	-rm -rf locale
