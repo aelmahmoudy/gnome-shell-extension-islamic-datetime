@@ -96,7 +96,8 @@ IslamicDateTime.prototype = {
       });
       hbox2.add(item.actor, {x_align: St.Align.END, expand: true, x_fill: false});
 
-      dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
+      this._notify_resumeId = dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
+      this._timeoutId = 0;
 
       Gst.init(null);
       this._playbin = Gst.ElementFactory.make('playbin2', 'play');
@@ -184,7 +185,7 @@ IslamicDateTime.prototype = {
         this._playAzan();
       }
 
-      Mainloop.timeout_add_seconds(60, Lang.bind(this, this._updateDateTime));
+      this._timeoutId = Mainloop.timeout_add_seconds(60, Lang.bind(this, this._updateDateTime));
       return false;
     },
 
@@ -225,7 +226,11 @@ IslamicDateTime.prototype = {
     },
 
     _destroy: function() {
-      dateMenu._upClient.disconnect('notify-resume', Lang.bind(this, this._updateDateTime));
+      dateMenu._upClient.disconnect(this._notify_resumeId);
+      if(this._timeoutId > 0) {
+        Mainloop.source_remove(this._timeoutId);
+        this._timeoutId = 0;
+      }
       this._vbox.destroy();
     }
 };
