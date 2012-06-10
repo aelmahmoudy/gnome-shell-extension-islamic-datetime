@@ -6,9 +6,21 @@ const GLib = imports.gi.GLib;
 const Main = imports.ui.main;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Itl = imports.gi.Itl;
+let ItlMissing = false;
+try {
+  const Itl = imports.gi.Itl;
+} catch(e) {
+  log(e);
+  ItlMissing = true;
+}
 const GObject = imports.gi.GObject;
-const Gst = imports.gi.Gst;
+let GstMissing = false;
+try {
+  const Gst = imports.gi.Gst;
+} catch(e) {
+  log(e);
+  GstMissing = true;
+}
 const MessageTray = imports.ui.messageTray;
 const PopupMenu = imports.ui.popupMenu;
 const Util = imports.misc.util;
@@ -280,6 +292,23 @@ function init(metadata) {
 }
 
 function enable() {
+  if(ItlMissing || GstMissing) {
+    let _source = new PrayerNotificationSource();
+    _source.connect('destroy', Lang.bind(
+      function() {
+          _source = null;
+      }));
+    Main.messageTray.add(_source);
+
+    let notification = null;
+    const MESSAGE = "Dependencies Missing\n\
+Please make sure that GObject introspection data for libitl & GStreamer libraries are installed\n\
+\t    on Debian/Ubuntu: gir1.2-gstreamer-1.0, gir1.2-itl-1.0"
+    notification = new MessageTray.Notification(_source, MESSAGE, null);
+
+    _source.notify(notification);
+    return 0;
+  }
   IslamicDateTimeMenu = new IslamicDateTime();
 }
 
