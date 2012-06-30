@@ -75,22 +75,36 @@ IslamicDateTime.prototype = {
       separator.setColumnWidths(1);
       vbox.add(separator.actor, {y_align: St.Align.END, expand: true, y_fill: false});
 
+      let hbox0 = new St.BoxLayout();
+      vbox.add(hbox0);
       this._hdate = new St.Label({style_class: 'datemenu-date-label'});
-      vbox.add(this._hdate);
+      hbox0.add(this._hdate);
+      this._RemLabel = new St.Label();
+      hbox0.add(this._RemLabel);
 
       let hbox1 = new St.BoxLayout();
       vbox.add(hbox1);
 
+      let hbox2 = new St.BoxLayout();
+      vbox.add(hbox2);
+
       this._PrayerLabel = new Array();
       for(let i=0; i<6; i++) {
         this._PrayerLabel.push(new St.Label());
-        hbox1.add(this._PrayerLabel[i]);
+        if(i==1) {
+          hbox2.add(this._PrayerLabel[i]);
+        }
+        else {
+          hbox1.add(this._PrayerLabel[i]);
+        }
       }
-
-      let hbox2 = new St.BoxLayout();
-      vbox.add(hbox2);
-      this._RemLabel = new St.Label();
-      hbox2.add(this._RemLabel);
+      this._MidnightLabel = new St.Label();
+      hbox2.add(this._MidnightLabel);
+      this._LastThrdLabel = new St.Label();
+      hbox2.add(this._LastThrdLabel);
+      this._PrayerLabel[1].style_class = 'non-prayer-label';
+      this._MidnightLabel.style_class = 'non-prayer-label';
+      this._LastThrdLabel.style_class = 'non-prayer-label';
 
       let icon = new St.Icon ({icon_type: St.IconType.FULLCOLOR,
                                icon_size: 16,
@@ -157,20 +171,36 @@ IslamicDateTime.prototype = {
       // Get prayer times:
       let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
       let PrayerList = this._PrayerObj.getPrayerTimes(today);
+      let NextDayFajr = this._PrayerObj.getNextDayFajr(today);
 
       let nowMins = now.getHours() * 60 + now.getMinutes();
+      let MaghribMins = AbsMins(PrayerList[4]);
+      let NextDayFajrMins = AbsMins(NextDayFajr);
+      let midnightMins = (NextDayFajrMins + (24*60 - MaghribMins))/2 + MaghribMins;
+      midnightMins = Math.floor(midnightMins);
+      if(midnightMins >= 1440) {
+        midnightMins -= 1440;
+      }
+      let lastthrdMins = (NextDayFajrMins + (24*60 - MaghribMins))*2/3 + MaghribMins;
+      lastthrdMins = Math.ceil(lastthrdMins);
+      if(lastthrdMins >= 1440) {
+        lastthrdMins -= 1440;
+      }
 
       for(let i=0; i<6; i++) {
         this._PrayerLabel[i].set_text("\t" + PrayerName(i) + ": " + PrayerList[i].get_hour() + ":" + ("%02d").format(PrayerList[i].get_minute()));
-        this._PrayerLabel[i].style_class = 'gen-prayer-label';
+        if(i!=1) {
+          this._PrayerLabel[i].style_class = 'gen-prayer-label';
+        }
       }
-      this._PrayerLabel[1].style_class = 'non-prayer-label';
+      this._MidnightLabel.set_text("\t" + _("Midnight") + ": " + Math.floor(midnightMins/60) + ":" + ("%02d").format(midnightMins%60));
+      this._LastThrdLabel.set_text("\t" + _("Last third of night") + ": " + Math.floor(lastthrdMins/60) + ":" + ("%02d").format(lastthrdMins%60));
 
       // Find upcoming prayer:
       let RemMins;
       let PrayerIdx=0;
       for(let i=0; i<6; i++, PrayerIdx=i) {
-        let PrayerMins = PrayerList[i].get_hour() * 60 + PrayerList[i].get_minute();
+        let PrayerMins = AbsMins(PrayerList[i]);
         RemMins = PrayerMins - nowMins;
         if((nowMins <= PrayerMins) && (i!=1)) {
           break;
@@ -179,11 +209,15 @@ IslamicDateTime.prototype = {
       if(PrayerIdx == 6) {
         // Case that now > Isha (which is before midnight):
         PrayerIdx = 0;
-        PrayerList[0] = this._PrayerObj.getNextDayFajr(today);
+        PrayerList[0] = NextDayFajr;
         this._PrayerLabel[0].set_text(" " + PrayerName(0) + ": " + PrayerList[0].get_hour() + ":" + PrayerList[0].get_minute());
-        RemMins = 24*60 - nowMins + PrayerList[0].get_hour()*60 + PrayerList[0].get_minute();
+        RemMins = 24*60 - nowMins + NextDayFajrMins;
       }
 
+      for(let i=0; i<PrayerIdx; i++) {
+        if(i==1) continue;
+        this._PrayerLabel[i].style_class = 'past-prayer-label';
+      }
       this._PrayerLabel[PrayerIdx].style_class = 'current-prayer-label';
 
       let RemStr = _("%d minutes").format(RemMins);
@@ -285,6 +319,11 @@ function PrayerName(PrayerIdx)
   return undefined;
 }
 
+function AbsMins(ptime)
+{
+  return(ptime.get_hour() * 60 + ptime.get_minute());
+}
+
 let IslamicDateTimeMenu;
 
 function init(metadata) {
@@ -307,7 +346,7 @@ Please make sure that GObject introspection data for libitl & GStreamer librarie
     notification = new MessageTray.Notification(_source, MESSAGE, null);
 
     _source.notify(notification);
-    return 0;
+    return false;
   }
   IslamicDateTimeMenu = new IslamicDateTime();
 }
