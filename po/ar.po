@@ -1,13 +1,13 @@
 # Arabic translation
-# Copyright (C) 2011 أحمد المحمودي (Ahmed El-Mahmoudy)
+# Copyright (C) 2011-2012 أحمد المحمودي (Ahmed El-Mahmoudy)
 # This file is distributed under the same license as the islamic-datetime package.
-# أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>, 2011.
+# أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: islamic-datetime 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-11 11:12+0200\n"
+"POT-Creation-Date: 2012-06-30 18:17+0200\n"
 "PO-Revision-Date: 2011-11-19 23:44+0200\n"
 "Last-Translator: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily."
 "org>>\n"
@@ -17,107 +17,111 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../extension.js:31
+#: ../extension.js:43
 msgid "Salat"
 msgstr "الصلاة"
 
-#: ../extension.js:82
-msgid "Islamic Date/Time functions settings"
-msgstr "إعدادات"
+#: ../extension.js:196
+msgid "Midnight"
+msgstr "نصف الليل"
 
-#: ../extension.js:169
+#: ../extension.js:197
+msgid "Last third of night"
+msgstr "ثلث الليل الأخير"
+
+#: ../extension.js:223
 #, c-format
 msgid "%d minutes"
 msgstr "%d دقيقة"
 
-#: ../extension.js:171
+#: ../extension.js:225
 #, c-format
 msgid "%d hours %d minutes"
 msgstr "%d ساعة و %d دقيقة"
 
-#: ../extension.js:173
+#: ../extension.js:227
 #, c-format
 msgid " %s left for %s prayer"
 msgstr "باق %s حتى صلاة %s"
 
-#: ../extension.js:180
+#: ../extension.js:234
 #, c-format
 msgid "Time now for %s prayer"
 msgstr "حان الآن وقت صلاة %s"
 
-#: ../extension.js:210
+#: ../extension.js:264
 msgid "Stop azan"
 msgstr "إيقاف الأذان"
 
-#: ../extension.js:230
+#: ../extension.js:293
 msgid "Muharram"
 msgstr "محرم"
 
-#: ../extension.js:231
+#: ../extension.js:294
 msgid "Safar"
 msgstr "صفر"
 
-#: ../extension.js:232
+#: ../extension.js:295
 msgid "Rabi' I"
 msgstr "ربيع الأول"
 
-#: ../extension.js:233
+#: ../extension.js:296
 msgid "Rabi' II"
 msgstr "ربيع الثاني"
 
-#: ../extension.js:234
+#: ../extension.js:297
 msgid "Jumaada I"
 msgstr "جمادى الأولى"
 
-#: ../extension.js:235
+#: ../extension.js:298
 msgid "Jumaada II"
 msgstr "جمادى الثانية"
 
-#: ../extension.js:236
+#: ../extension.js:299
 msgid "Rajab"
 msgstr "رجب"
 
-#: ../extension.js:237
+#: ../extension.js:300
 msgid "Shaa'ban"
 msgstr "شعبان"
 
-#: ../extension.js:238
+#: ../extension.js:301
 msgid "Ramadan"
 msgstr "رمضان"
 
-#: ../extension.js:239
+#: ../extension.js:302
 msgid "Shawwaal"
 msgstr "شوال"
 
-#: ../extension.js:240
+#: ../extension.js:303
 msgid "Thul Qi'dah"
 msgstr "ذو القعدة"
 
-#: ../extension.js:241
+#: ../extension.js:304
 msgid "Thul Hijjah"
 msgstr "ذو الحجة"
 
-#: ../extension.js:249
+#: ../extension.js:312
 msgid "Fajr"
 msgstr "الفجر"
 
-#: ../extension.js:250
+#: ../extension.js:313
 msgid "Shurooq"
 msgstr "الشروق"
 
-#: ../extension.js:251
+#: ../extension.js:314
 msgid "Dhuhr"
 msgstr "الظهر"
 
-#: ../extension.js:252
+#: ../extension.js:315
 msgid "'Asr"
 msgstr "العصر"
 
-#: ../extension.js:253
+#: ../extension.js:316
 msgid "Maghrib"
 msgstr "المغرب"
 
-#: ../extension.js:254
+#: ../extension.js:317
 msgid "'Ishaa"
 msgstr "العشاء"
 
@@ -214,3 +218,6 @@ msgstr "تصحيح التاريخ الهجري"
 #: ../islamic-datetime-config:164 ../prefs.js:59
 msgid "Manual correction for Hijri date calculation"
 msgstr "تصحيح يدوي للتاريخ الهجري"
+
+#~ msgid "Islamic Date/Time functions settings"
+#~ msgstr "إعدادات"

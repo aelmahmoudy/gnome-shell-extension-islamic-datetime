@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-11 11:12+0200\n"
+"POT-Creation-Date: 2012-06-30 18:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,107 +17,111 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../extension.js:31
+#: ../extension.js:43
 msgid "Salat"
 msgstr ""
 
-#: ../extension.js:82
-msgid "Islamic Date/Time functions settings"
+#: ../extension.js:196
+msgid "Midnight"
 msgstr ""
 
-#: ../extension.js:169
+#: ../extension.js:197
+msgid "Last third of night"
+msgstr ""
+
+#: ../extension.js:223
 #, c-format
 msgid "%d minutes"
 msgstr ""
 
-#: ../extension.js:171
+#: ../extension.js:225
 #, c-format
 msgid "%d hours %d minutes"
 msgstr ""
 
-#: ../extension.js:173
+#: ../extension.js:227
 #, c-format
 msgid " %s left for %s prayer"
 msgstr ""
 
-#: ../extension.js:180
+#: ../extension.js:234
 #, c-format
 msgid "Time now for %s prayer"
 msgstr ""
 
-#: ../extension.js:210
+#: ../extension.js:264
 msgid "Stop azan"
 msgstr ""
 
-#: ../extension.js:230
+#: ../extension.js:293
 msgid "Muharram"
 msgstr ""
 
-#: ../extension.js:231
+#: ../extension.js:294
 msgid "Safar"
 msgstr ""
 
-#: ../extension.js:232
+#: ../extension.js:295
 msgid "Rabi' I"
 msgstr ""
 
-#: ../extension.js:233
+#: ../extension.js:296
 msgid "Rabi' II"
 msgstr ""
 
-#: ../extension.js:234
+#: ../extension.js:297
 msgid "Jumaada I"
 msgstr ""
 
-#: ../extension.js:235
+#: ../extension.js:298
 msgid "Jumaada II"
 msgstr ""
 
-#: ../extension.js:236
+#: ../extension.js:299
 msgid "Rajab"
 msgstr ""
 
-#: ../extension.js:237
+#: ../extension.js:300
 msgid "Shaa'ban"
 msgstr ""
 
-#: ../extension.js:238
+#: ../extension.js:301
 msgid "Ramadan"
 msgstr ""
 
-#: ../extension.js:239
+#: ../extension.js:302
 msgid "Shawwaal"
 msgstr ""
 
-#: ../extension.js:240
+#: ../extension.js:303
 msgid "Thul Qi'dah"
 msgstr ""
 
-#: ../extension.js:241
+#: ../extension.js:304
 msgid "Thul Hijjah"
 msgstr ""
 
-#: ../extension.js:249
+#: ../extension.js:312
 msgid "Fajr"
 msgstr ""
 
-#: ../extension.js:250
+#: ../extension.js:313
 msgid "Shurooq"
 msgstr ""
 
-#: ../extension.js:251
+#: ../extension.js:314
 msgid "Dhuhr"
 msgstr ""
 
-#: ../extension.js:252
+#: ../extension.js:315
 msgid "'Asr"
 msgstr ""
 
-#: ../extension.js:253
+#: ../extension.js:316
 msgid "Maghrib"
 msgstr ""
 
-#: ../extension.js:254
+#: ../extension.js:317
 msgid "'Ishaa"
 msgstr ""
 
