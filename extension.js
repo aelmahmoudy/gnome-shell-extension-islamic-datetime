@@ -334,7 +334,7 @@ function init(metadata) {
 function enable() {
   if(ItlMissing || GstMissing) {
     let _source = new PrayerNotificationSource();
-    _source.connect('destroy', Lang.bind(
+    _source.connect('destroy', Lang.bind(_source,
       function() {
           _source = null;
       }));
