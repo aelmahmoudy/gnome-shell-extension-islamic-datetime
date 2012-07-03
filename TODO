@@ -1,11 +1,7 @@
-* i18n
 * Kittouni's suggestions
   + Hijri date above Gregorian date
-  + Two lines: one for prayers, one for other times
-* Add midnight, last 1/3 night times
 * Hijri calendar
 * Autoconfigure using GeoClue ? (Not introspectable ! Maybe use DBus)
-* enable/disable methods
 * Add events (9th/10th Muharram, Dhul-Hijjah days, ...)
 * Features from Bilal:
   + Takbeer in both Eids (@ startup only ?)
