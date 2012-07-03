@@ -278,6 +278,7 @@ IslamicDateTime.prototype = {
     },
 
     _destroy: function() {
+      let dateMenu = Main.panel._dateMenu;
       dateMenu._upClient.disconnect(this._notify_resumeId);
       if(this._timeoutId > 0) {
         Mainloop.source_remove(this._timeoutId);
