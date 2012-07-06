@@ -14,3 +14,9 @@
     color: gray;
 }
 
+.button:hover {
+    background-color: #999999;
+}
+.button:active {
+    background-color: #aaaaaa;
+}

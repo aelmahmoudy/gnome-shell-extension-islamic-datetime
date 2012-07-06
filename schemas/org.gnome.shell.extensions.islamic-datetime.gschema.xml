@@ -46,5 +46,10 @@
       <summary>Hijri date correction</summary>
       <description>Manual correction for Hijri date calculation.</description>
     </key>
+    <key type="b" name="display-hijri">
+      <default>false</default>
+      <summary>Display Hijri date</summary>
+      <description>Display Hijri date/calendar instead of Gregorian in date menu.</description>
+    </key>
   </schema>
 </schemalist>

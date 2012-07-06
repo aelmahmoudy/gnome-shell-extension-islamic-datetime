@@ -67,6 +67,14 @@ IslamicDateTime.prototype = {
       let dateMenu = Main.panel._dateMenu;
       let children = dateMenu.menu._getMenuItems();
 
+      this._dateButton = new St.Button({style_class: 'button'});
+      this._dateButton.connect('clicked',  Lang.bind(this, this._toggleDisplayDate));
+      this._hdate = new St.Label({style_class: 'datemenu-date-label'});
+      let dateMenuvbox = dateMenu._date.get_parent();
+      dateMenuvbox.remove_child(dateMenu._date);
+      this._dateButton.set_child(dateMenu._date);
+      dateMenuvbox.insert_child_at_index(this._dateButton,0);
+
       let vbox = new St.BoxLayout({vertical: true});
       dateMenu.menu.addActor(vbox);
       this._vbox = vbox;
@@ -74,13 +82,6 @@ IslamicDateTime.prototype = {
       let separator = new PopupMenu.PopupSeparatorMenuItem();
       separator.setColumnWidths(1);
       vbox.add(separator.actor, {y_align: St.Align.END, expand: true, y_fill: false});
-
-      let hbox0 = new St.BoxLayout();
-      vbox.add(hbox0);
-      this._hdate = new St.Label({style_class: 'datemenu-date-label'});
-      hbox0.add(this._hdate);
-      this._RemLabel = new St.Label();
-      hbox0.add(this._RemLabel);
 
       let hbox1 = new St.BoxLayout();
       vbox.add(hbox1);
@@ -106,11 +107,17 @@ IslamicDateTime.prototype = {
       this._MidnightLabel.style_class = 'non-prayer-label';
       this._LastThrdLabel.style_class = 'non-prayer-label';
 
+      let hbox0 = new St.BoxLayout();
+      vbox.add(hbox0);
+      this._RemLabel = new St.Label();
+      hbox0.add(this._RemLabel);
+
       let icon = new St.Icon ({icon_type: St.IconType.FULLCOLOR,
                                icon_size: 16,
                                icon_name: 'system-run'
                               });
-      let button = new St.Button();
+      let button = new St.Button({style_class: 'button'});
+      button.set_margin_right(5);
       button.add_actor(icon);
 
       button.connect('clicked', function() {
@@ -126,7 +133,7 @@ IslamicDateTime.prototype = {
         let variant = GLib.Variant.new_tuple(vary, 1);
         proxy.call("LaunchExtensionPrefs", variant, Gio.DBusCallFlags.NONE, -1, null, null, null);
       });
-      hbox2.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
+      hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
 
       this._notify_resumeId = dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
       this._timeoutId = 0;
@@ -157,7 +164,19 @@ IslamicDateTime.prototype = {
 
       this._HijriFix = this._settings.get_int('hijri-fix');
 
+      let dateMenu = Main.panel._dateMenu;
+      if(this._settings.get_boolean('display-hijri')) {
+        this._dateButton.set_child(this._hdate);
+      }
+      else {
+        this._dateButton.set_child(dateMenu._date);
+      }
+
       this._updateDateTime();
+    },
+
+    _toggleDisplayDate: function() {
+      this._settings.set_boolean('display-hijri', !(this._settings.get_boolean('display-hijri')));
     },
 
     _updateDateTime: function() {
@@ -166,7 +185,7 @@ IslamicDateTime.prototype = {
       // Get Hijri date:
       let pnow = new Date(now.getTime() + this._HijriFix*24*60*60*1000);
       let dd = Itl.h_date(pnow.getDate(), pnow.getMonth()+1, pnow.getFullYear());
-      this._hdate.set_text(" " + dd.get_day() + " " + HijriMonthName(dd.get_month()) + " " + dd.get_year());
+      this._hdate.set_text(now.toLocaleFormat(_("%A")) + " " + HijriMonthName(dd.get_month()) + " " + dd.get_day() + ", " + dd.get_year());
 
       // Get prayer times:
       let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
@@ -188,13 +207,13 @@ IslamicDateTime.prototype = {
       }
 
       for(let i=0; i<6; i++) {
-        this._PrayerLabel[i].set_text("\t" + PrayerName(i) + ": " + PrayerList[i].get_hour() + ":" + ("%02d").format(PrayerList[i].get_minute()));
+        this._PrayerLabel[i].set_text("     " + PrayerName(i) + ": " + PrayerList[i].get_hour() + ":" + ("%02d").format(PrayerList[i].get_minute()));
         if(i!=1) {
           this._PrayerLabel[i].style_class = 'gen-prayer-label';
         }
       }
-      this._MidnightLabel.set_text("\t" + _("Midnight") + ": " + Math.floor(midnightMins/60) + ":" + ("%02d").format(midnightMins%60));
-      this._LastThrdLabel.set_text("\t" + _("Last third of night") + ": " + Math.floor(lastthrdMins/60) + ":" + ("%02d").format(lastthrdMins%60));
+      this._MidnightLabel.set_text("     " + _("Midnight") + ": " + Math.floor(midnightMins/60) + ":" + ("%02d").format(midnightMins%60));
+      this._LastThrdLabel.set_text("     " + _("Last third of night") + ": " + Math.floor(lastthrdMins/60) + ":" + ("%02d").format(lastthrdMins%60));
 
       // Find upcoming prayer:
       let RemMins;
@@ -220,9 +239,9 @@ IslamicDateTime.prototype = {
       }
       this._PrayerLabel[PrayerIdx].style_class = 'current-prayer-label';
 
-      let RemStr = _("%d minutes").format(RemMins);
+      let RemStr = _("    %d minutes").format(RemMins);
       if(RemMins >= 60) {
-        RemStr = _("%d hours %d minutes").format(Math.floor(RemMins/60), RemMins%60);
+        RemStr = _("    %d hours %d minutes").format(Math.floor(RemMins/60), RemMins%60);
       }
       this._RemLabel.set_text( _(" %s left for %s prayer").format(RemStr, PrayerName(PrayerIdx)) );
 
@@ -231,7 +250,7 @@ IslamicDateTime.prototype = {
         this._notify(this._RemLabel.get_text(), true);
       }
       else if(RemMins == 0) {
-        this._RemLabel.set_text( _("Time now for %s prayer").format(PrayerName(PrayerIdx)), false );
+        this._RemLabel.set_text( _("    Time now for %s prayer").format(PrayerName(PrayerIdx)), false );
         this._notify(this._RemLabel.get_text());
 
         this._playAzan();
@@ -284,6 +303,10 @@ IslamicDateTime.prototype = {
         Mainloop.source_remove(this._timeoutId);
         this._timeoutId = 0;
       }
+      this._dateButton.set_child(this._hdate);
+      let dateMenuvbox = this._dateButton.get_parent();
+      dateMenuvbox.insert_child_at_index(dateMenu._date, 0);
+      this._dateButton.destroy();
       this._vbox.destroy();
     }
 };
