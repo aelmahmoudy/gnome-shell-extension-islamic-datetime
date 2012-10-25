@@ -133,16 +133,16 @@ IslamicDateTime.prototype = {
       });
       hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
 
-      this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
       this._timeoutId = 0;
 
       Gst.init(null);
-      this._playbin = Gst.ElementFactory.make('playbin2', 'play');
+      this._playbin = Gst.ElementFactory.make('playbin', 'play');
       this._playbin.set_state(Gst.State.NULL);
 
       this._PrayerObj = new Itl.Prayer();
 
       this._config();
+      this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
     },
 
     _config: function() {
