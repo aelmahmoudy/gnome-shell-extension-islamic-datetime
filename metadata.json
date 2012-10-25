@@ -1,5 +1,5 @@
 {
-   "shell-version": ["3.2", "3.4"], 
+   "shell-version": ["3.6"], 
    "extension-id": "islamic-datetime",
    "uuid": "islamic-datetime@sabily.org", 
    "settings-schema": "org.gnome.shell.extensions.islamic-datetime",

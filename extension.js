@@ -47,7 +47,6 @@ PrayerNotificationSource.prototype = {
 
     createNotificationIcon: function() {
         return new St.Icon({ icon_name: 'islamic-datetime',
-                             icon_type: St.IconType.FULLCOLOR,
                              icon_size: this.ICON_SIZE });
     },
 
@@ -64,7 +63,7 @@ IslamicDateTime.prototype = {
     __proto__: GObject.prototype,
 
     _init: function(params) {
-      let dateMenu = Main.panel._dateMenu;
+      let dateMenu = Main.panel.statusArea.dateMenu;
       let children = dateMenu.menu._getMenuItems();
 
       this._dateButton = new St.Button({style_class: 'button'});
@@ -112,8 +111,7 @@ IslamicDateTime.prototype = {
       this._RemLabel = new St.Label();
       hbox0.add(this._RemLabel);
 
-      let icon = new St.Icon ({icon_type: St.IconType.FULLCOLOR,
-                               icon_size: 16,
+      let icon = new St.Icon ({icon_size: 16,
                                icon_name: 'system-run'
                               });
       let button = new St.Button({style_class: 'button'});
@@ -135,7 +133,7 @@ IslamicDateTime.prototype = {
       });
       hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
 
-      this._notify_resumeId = dateMenu._upClient.connect('notify-resume', Lang.bind(this, this._updateDateTime));
+      this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
       this._timeoutId = 0;
 
       Gst.init(null);
@@ -164,7 +162,7 @@ IslamicDateTime.prototype = {
 
       this._HijriFix = this._settings.get_int('hijri-fix');
 
-      let dateMenu = Main.panel._dateMenu;
+      let dateMenu = Main.panel.statusArea.dateMenu;
       if(this._settings.get_boolean('display-hijri')) {
         this._dateButton.set_child(this._hdate);
       }
@@ -297,8 +295,8 @@ IslamicDateTime.prototype = {
     },
 
     _destroy: function() {
-      let dateMenu = Main.panel._dateMenu;
-      dateMenu._upClient.disconnect(this._notify_resumeId);
+      let dateMenu = Main.panel.statusArea.dateMenu;
+      dateMenu._clock.disconnect(this._notify_resumeId);
       if(this._timeoutId > 0) {
         Mainloop.source_remove(this._timeoutId);
         this._timeoutId = 0;
@@ -373,6 +371,7 @@ Please make sure that GObject introspection data for libitl & GStreamer librarie
     return false;
   }
   IslamicDateTimeMenu = new IslamicDateTime();
+  return true;
 }
 
 function disable() {
