@@ -40,14 +40,7 @@ PrayerNotificationSource.prototype = {
     __proto__:  MessageTray.Source.prototype,
 
     _init: function() {
-        MessageTray.Source.prototype._init.call(this, _("Salat"));
-
-        this._setSummaryIcon(this.createNotificationIcon());
-    },
-
-    createNotificationIcon: function() {
-        return new St.Icon({ icon_name: 'islamic-datetime',
-                             icon_size: this.ICON_SIZE });
+        MessageTray.Source.prototype._init.call(this, _("Salat"), 'islamic-datetime');
     },
 
     open: function() {
