@@ -135,6 +135,11 @@ IslamicDateTime.prototype = {
       this._PrayerObj = new Itl.Prayer();
 
       this._config();
+      this._azanFlag = 0;
+      this._playbin.connect('about-to-finish', Lang.bind(this,
+        function() {
+            this._azanFlag = 0;
+        }))
       this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
     },
 
@@ -240,7 +245,7 @@ IslamicDateTime.prototype = {
       if(RemMins == 5) {
         this._notify(this._RemLabel.get_text(), true);
       }
-      else if(RemMins == 0) {
+      else if((RemMins == 0) && !this._azanFlag) {
         this._RemLabel.set_text( _("    Time now for %s prayer").format(PrayerName(PrayerIdx)), false );
         this._notify(this._RemLabel.get_text());
 
@@ -279,10 +284,12 @@ IslamicDateTime.prototype = {
     },
 
     _stopAzan: function() {
+      this._azanFlag = 0;
       this._playbin.set_state(Gst.State.NULL);
     },
 
     _playAzan: function() {
+      this._azanFlag = 1;
       this._playbin.set_state(Gst.State.NULL);
       this._playbin.set_state(Gst.State.PLAYING);
     },
