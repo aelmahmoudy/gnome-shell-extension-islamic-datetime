@@ -40,9 +40,9 @@ const IslamicDatetimeWidget = new GObject.Class({
 
         /***  Location   ***/
         this._add_double(0, 'longitude', _("Longitude"),
-                         _("Set the locations latitude"), -90.0, 90.0, 0.01, false);
+                         _("Set the locations latitude"), -180.0, 180.0, 0.01, false);
         this._add_double(1, 'latitude', _("Latitude"),
-                         _("Set the locations timezone"), -180.0, 180.0, 0.01, false);
+                         _("Set the locations timezone"), -90.0, 90.0, 0.01, false);
 
         this._add_double(2, 'gmt-diff', _("Time zone"),
                          _("Set the locations timezone"), -12.0, 14.0, 0.5,
