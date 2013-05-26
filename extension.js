@@ -184,7 +184,8 @@ IslamicDateTime.prototype = {
       this._hdate.set_text(now.toLocaleFormat(_("%A")) + " " + HijriMonthName(dd.get_month()) + " " + dd.get_day() + ", " + dd.get_year());
 
       // Get prayer times:
-      let today = new GLib.Date.new_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
+      let today = new GLib.Date;
+      today.set_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
       let PrayerList = this._PrayerObj.getPrayerTimes(today);
       let NextDayFajr = this._PrayerObj.getNextDayFajr(today);
 
