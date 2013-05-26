@@ -112,17 +112,7 @@ IslamicDateTime.prototype = {
       button.add_actor(icon);
 
       button.connect('clicked', function() {
-          //Util.spawn(["islamic-datetime-config"]);
-        // TODO: delete proxy, array & variant ?
-        let proxy = new Gio.DBusProxy({ g_connection: Gio.DBus.session,
-		      g_name: 'org.gnome.Shell',
-		      g_object_path: '/org/gnome/Shell',
-		      g_interface_name: 'org.gnome.Shell',
-          g_flags: (Gio.DBusProxyFlags.NONE) });
-        let vary = new Array();
-        vary[0] = GLib.Variant.new_string(Me.metadata.uuid);
-        let variant = GLib.Variant.new_tuple(vary, 1);
-        proxy.call("LaunchExtensionPrefs", variant, Gio.DBusCallFlags.NONE, -1, null, null, null);
+        Util.spawn(["gnome-shell-extension-prefs", Me.metadata.uuid]);
       });
       hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
 
