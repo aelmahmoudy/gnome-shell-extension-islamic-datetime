@@ -68,11 +68,10 @@ IslamicDateTime.prototype = {
       dateMenuvbox.insert_child_at_index(this._dateButton,0);
 
       let vbox = new St.BoxLayout({vertical: true});
-      dateMenu.menu.addActor(vbox);
+      dateMenu.menu.box.add(vbox);
       this._vbox = vbox;
 
       let separator = new PopupMenu.PopupSeparatorMenuItem();
-      separator.setColumnWidths(1);
       vbox.add(separator.actor, {y_align: St.Align.END, expand: true, y_fill: false});
 
       let hbox1 = new St.BoxLayout();
