@@ -111,6 +111,7 @@ IslamicDateTime.prototype = {
       button.add_actor(icon);
 
       button.connect('clicked', function() {
+        dateMenu.menu.actor.hide();
         Util.spawn(["gnome-shell-extension-prefs", Me.metadata.uuid]);
       });
       hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
