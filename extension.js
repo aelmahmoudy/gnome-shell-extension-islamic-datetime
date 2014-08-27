@@ -67,9 +67,12 @@ IslamicDateTime.prototype = {
       this._dateButton.set_child(dateMenu._date);
       dateMenuvbox.insert_child_at_index(this._dateButton,0);
 
+      let hbox = new St.BoxLayout();
+      dateMenu.menu.box.add(hbox);
+      this._hbox = hbox;
+
       let vbox = new St.BoxLayout({vertical: true});
-      dateMenu.menu.box.add(vbox);
-      this._vbox = vbox;
+      hbox.add(vbox);
 
       let separator = new PopupMenu.PopupSeparatorMenuItem();
       vbox.add(separator.actor, {y_align: St.Align.END, expand: true, y_fill: false});
@@ -103,18 +106,14 @@ IslamicDateTime.prototype = {
       this._RemLabel = new St.Label();
       hbox0.add(this._RemLabel);
 
-      let icon = new St.Icon ({icon_size: 16,
-                               icon_name: 'preferences-system-symbolic'
-                              });
-      let button = new St.Button({style_class: 'button'});
-      button.set_margin_right(5);
-      button.add_actor(icon);
+      let systemMenu = Main.panel.statusArea.aggregateMenu._system;
+      let button = systemMenu._createActionButton('preferences-system-symbolic', _("Settings"));
 
       button.connect('clicked', function() {
         dateMenu.menu.actor.hide();
         Util.spawn(["gnome-shell-extension-prefs", Me.metadata.uuid]);
       });
-      hbox0.add(button, {x_align: St.Align.END, expand: true, x_fill: false});
+      hbox.add(button, {x_align: St.Align.END, y_align: St.Align.END, expand: true, x_fill: false, y_fill: false});
 
       this._timeoutId = 0;
 
@@ -305,7 +304,7 @@ IslamicDateTime.prototype = {
       let dateMenuvbox = this._dateButton.get_parent();
       dateMenuvbox.insert_child_at_index(dateMenu._date, 0);
       this._dateButton.destroy();
-      this._vbox.destroy();
+      this._hbox.destroy();
     }
 };
 
