@@ -104,7 +104,7 @@ IslamicDateTime.prototype = {
       hbox0.add(this._RemLabel);
 
       let icon = new St.Icon ({icon_size: 16,
-                               icon_name: 'system-run'
+                               icon_name: 'preferences-system-symbolic'
                               });
       let button = new St.Button({style_class: 'button'});
       button.set_margin_right(5);
