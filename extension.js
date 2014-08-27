@@ -270,8 +270,7 @@ IslamicDateTime.prototype = {
 
       notification.setTransient(isTransient);
       if(!isTransient) {
-        let stopButton = new St.Button({style_class: 'button', label: _("Stop azan")});
-        notification.addButton(stopButton, this._stopAzan);
+        notification.addAction(_("Stop azan"), this._stopAzan);
       }
 
       this._source.notify(notification);
