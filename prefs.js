@@ -164,7 +164,7 @@ const IslamicDatetimeWidget = new GObject.Class({
       entry.set_icon_from_stock(Gtk.EntryIconPosition.PRIMARY, Gtk.STOCK_OPEN)
 
       entry.connect('icon-press', Lang.bind(this, function(widget, pos, evnt) {
-        let filechooser = new Gtk.FileChooserDialog({ title: Label, parent: this.window, action: Gtk.FileChooserAction.OPEN });
+        let filechooser = new Gtk.FileChooserDialog({ title: Label, parent: this, action: Gtk.FileChooserAction.OPEN });
         filechooser.add_button(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL);
         filechooser.add_button(Gtk.STOCK_OK, Gtk.ResponseType.OK);
         let filefilter = new Gtk.FileFilter();
