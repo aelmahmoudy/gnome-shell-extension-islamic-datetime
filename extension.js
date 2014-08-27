@@ -65,6 +65,7 @@ IslamicDateTime.prototype = {
       let dateMenuvbox = dateMenu._date.get_parent();
       dateMenuvbox.remove_child(dateMenu._date);
       this._dateButton.set_child(dateMenu._date);
+      dateMenu._date.connect('clicked',  Lang.bind(this, this._toggleDisplayDate));
       dateMenuvbox.insert_child_at_index(this._dateButton,0);
 
       let hbox = new St.BoxLayout();
