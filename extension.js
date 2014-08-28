@@ -14,13 +14,6 @@ try {
   ItlMissing = true;
 }
 const GObject = imports.gi.GObject;
-let GstMissing = false;
-try {
-  const Gst = imports.gi.Gst;
-} catch(e) {
-  log(e);
-  GstMissing = true;
-}
 const MessageTray = imports.ui.messageTray;
 const PopupMenu = imports.ui.popupMenu;
 const Util = imports.misc.util;
@@ -118,20 +111,12 @@ IslamicDateTime.prototype = {
 
       this._timeoutId = 0;
 
-      Gst.init(null);
-      this._playbin = Gst.ElementFactory.make('playbin', 'play');
-      this._playbin.set_state(Gst.State.NULL);
-
       this._PrayerObj = new Itl.Prayer();
 
       this._config();
       this._azanFlag = 0;
       this._azanStopped = 0;
-      this._playbin.connect('about-to-finish', Lang.bind(this,
-        function() {
-            this._azanFlag = 0;
-            this._azanStopped = 0;
-        }))
+      this._azanFile = "";
       this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
     },
 
@@ -141,7 +126,7 @@ IslamicDateTime.prototype = {
         this._settings.connect('changed', Lang.bind(this, this._config));
       }
 
-      this._playbin.uri = 'file://' + this._settings.get_string('azan-file');
+      this._azanFile = this._settings.get_string('azan-file');
 
       this._PrayerObj.degree_long = this._settings.get_double('longitude');
       this._PrayerObj.degree_lat = this._settings.get_double('latitude');
@@ -284,13 +269,12 @@ IslamicDateTime.prototype = {
         function() {
             this._azanStopped = 0;
         }));
-      this._playbin.set_state(Gst.State.NULL);
+      global.cancel_theme_sound(1);
     },
 
     _playAzan: function() {
       this._azanFlag = 1;
-      this._playbin.set_state(Gst.State.NULL);
-      this._playbin.set_state(Gst.State.PLAYING);
+      global.play_sound_file(1, this._azanFile, "azan", null);
     },
 
     _destroy: function() {
@@ -352,7 +336,7 @@ function init(metadata) {
 }
 
 function enable() {
-  if(ItlMissing || GstMissing) {
+  if(ItlMissing) {
     let _source = new PrayerNotificationSource();
     _source.connect('destroy', Lang.bind(_source,
       function() {
@@ -362,8 +346,8 @@ function enable() {
 
     let notification = null;
     const MESSAGE = "Dependencies Missing\n\
-Please make sure that GObject introspection data for libitl & GStreamer libraries are installed\n\
-\t    on Debian/Ubuntu: gir1.2-gstreamer-1.0, gir1.2-itl-1.0"
+Please make sure that GObject introspection data for libitl library is installed\n\
+\t    on Debian/Ubuntu: gir1.2-itl-1.0"
     notification = new MessageTray.Notification(_source, MESSAGE, null);
 
     _source.notify(notification);
