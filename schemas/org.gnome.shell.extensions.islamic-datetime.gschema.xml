@@ -26,6 +26,11 @@
       <summary>Latitude</summary>
       <description>Set the locations latitude.</description>
     </key>
+    <key type="b" name="system-tz">
+      <default>true</default>
+      <summary>Use system timezone</summary>
+      <description>Get timezone information from the system.</description>
+    </key>
     <key type="d" name="gmt-diff">
       <default>0</default>
       <summary>Time zone</summary>

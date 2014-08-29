@@ -1,4 +1,3 @@
-* DST from system settings
 * Hijri calendar
 * Autoconfigure using GeoClue ? (Not introspectable ! Maybe use DBus)
 * Add events (9th/10th Muharram, Dhul-Hijjah days, ...)

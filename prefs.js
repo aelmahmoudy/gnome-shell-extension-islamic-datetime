@@ -44,18 +44,24 @@ const IslamicDatetimeWidget = new GObject.Class({
         this._add_double(1, 'latitude', _("Latitude"),
                          _("Set the locations timezone"), -90.0, 90.0, 0.01, false);
 
-        this._add_double(2, 'gmt-diff', _("Time zone"),
+        let systemTZ = this._add_bool(2, 'system-tz', _("Use system timezone"),
+                       _("Get timezone information from the system"));
+        let gmtDiff = this._add_double(3, 'gmt-diff', _("Time zone"),
                          _("Set the locations timezone"), -12.0, 14.0, 0.5,
                          true);
-        this._add_bool(3, 'dst', _("DST"), _("Enable DST"));
+        let dst = this._add_bool(4, 'dst', _("DST"), _("Enable DST"));
+        systemTZ.connect('toggled', Lang.bind(this, function(widget) {
+          gmtDiff.set_sensitive(!systemTZ.get_active());
+          dst.set_sensitive(!systemTZ.get_active());
+        }));
 
         /***  Method   ***/
-        this._add_enum(4, 'method', _("Calculation method"), METHODS,
+        this._add_enum(5, 'method', _("Calculation method"), METHODS,
                        _("Choose the prayer time calculation method"));
 
-        this._add_filechooser(5, 'azan-file', _("Azan audio file"),
+        this._add_filechooser(6, 'azan-file', _("Azan audio file"),
                               _("Audio file to play azan"));
-        this._add_int(6, 'hijri-fix', _("Hijri date correction"),
+        this._add_int(7, 'hijri-fix', _("Hijri date correction"),
                       _("Manual correction for Hijri date calculation"), -2, 2,
                       1, true);
     },
@@ -99,6 +105,7 @@ const IslamicDatetimeWidget = new GObject.Class({
       }
       this._add_tooltip(entry, Tooltip);
       this.attach(entry, 1, ypos, 1, 1);
+      return(entry);
     },
 
     _add_double: function(ypos, Key, Label, Tooltip, min, max, step, snap) {
@@ -125,6 +132,7 @@ const IslamicDatetimeWidget = new GObject.Class({
       }
       this._add_tooltip(entry, Tooltip);
       this.attach(entry, 1, ypos, 1, 1);
+      return(entry);
     },
 
     _add_enum: function(ypos, Key, Label, Items, Tooltip) {
@@ -142,6 +150,7 @@ const IslamicDatetimeWidget = new GObject.Class({
       combo.set_active(currentValue-1);
       this._add_tooltip(combo, Tooltip);
       this.attach(combo, 1, ypos, 1, 1);
+      return(combo);
     },
 
     _add_bool: function(ypos, Key, Label, Tooltip) {
@@ -154,6 +163,7 @@ const IslamicDatetimeWidget = new GObject.Class({
       }));
       this._add_tooltip(check, Tooltip);
       this.attach(check, 1, ypos, 1, 1);
+      return(check);
     },
 
     _add_filechooser: function(ypos, Key, Label, Tooltip) {
@@ -179,6 +189,7 @@ const IslamicDatetimeWidget = new GObject.Class({
 
       this._add_tooltip(entry, Tooltip);
       this.attach(entry, 1, ypos, 1, 1);
+      return(entry);
     },
 
 });

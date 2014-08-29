@@ -117,6 +117,7 @@ IslamicDateTime.prototype = {
       this._azanFlag = 0;
       this._azanStopped = 0;
       this._azanFile = "";
+      this._systemTZ = true;
       this._notify_resumeId = dateMenu._clock.connect('notify::clock', Lang.bind(this, this._updateDateTime));
     },
 
@@ -130,8 +131,11 @@ IslamicDateTime.prototype = {
 
       this._PrayerObj.degree_long = this._settings.get_double('longitude');
       this._PrayerObj.degree_lat = this._settings.get_double('latitude');
-      this._PrayerObj.gmt_diff = this._settings.get_double('gmt-diff');
-      this._PrayerObj.dst = this._settings.get_boolean('dst');
+      this._systemTZ =  this._settings.get_boolean('system-tz');
+      if(!this._systemTZ) {
+        this._PrayerObj.gmt_diff = this._settings.get_double('gmt-diff');
+        this._PrayerObj.dst = this._settings.get_boolean('dst');
+      }
 
       this._PrayerObj.setMethod(this._settings.get_enum('method'));
 
@@ -163,6 +167,11 @@ IslamicDateTime.prototype = {
       // Get prayer times:
       let today = new GLib.Date;
       today.set_dmy(now.getDate(), now.getMonth()+1, now.getFullYear());
+      if(this._systemTZ) {
+        let now2 = GLib.DateTime.new_now_local();
+        this._PrayerObj.gmt_diff = now2.get_utc_offset() / (60*60*1000000);
+        this._PrayerObj.dst = 0;
+      }
       let PrayerList = this._PrayerObj.getPrayerTimes(today);
       let NextDayFajr = this._PrayerObj.getNextDayFajr(today);
 
