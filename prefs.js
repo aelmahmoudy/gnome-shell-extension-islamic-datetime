@@ -50,6 +50,8 @@ const IslamicDatetimeWidget = new GObject.Class({
                          _("Set the locations timezone"), -12.0, 14.0, 0.5,
                          true);
         let dst = this._add_bool(4, 'dst', _("DST"), _("Enable DST"));
+        gmtDiff.set_sensitive(!systemTZ.get_active());
+        dst.set_sensitive(!systemTZ.get_active());
         systemTZ.connect('toggled', Lang.bind(this, function(widget) {
           gmtDiff.set_sensitive(!systemTZ.get_active());
           dst.set_sensitive(!systemTZ.get_active());
