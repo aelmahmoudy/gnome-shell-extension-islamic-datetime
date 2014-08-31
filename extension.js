@@ -25,22 +25,6 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
 
-function PrayerNotificationSource() {
-    this._init();
-}
-
-PrayerNotificationSource.prototype = {
-    __proto__:  MessageTray.Source.prototype,
-
-    _init: function() {
-        MessageTray.Source.prototype._init.call(this, _("Salat"), 'islamic-datetime');
-    },
-
-    open: function() {
-        this.destroy();
-    }
-};
-
 function IslamicDateTime() {
     this._init.apply(this, arguments);
 }
@@ -247,7 +231,7 @@ IslamicDateTime.prototype = {
 
     _notify: function(text, isTransient) {
       if(this._source == null) {
-        this._source = new PrayerNotificationSource();
+        this._source = new MessageTray.Source( _("Salat"), 'islamic-datetime');
         this._source.connect('destroy', Lang.bind(this,
           function() {
               this._source = null;
@@ -346,7 +330,7 @@ function init(metadata) {
 
 function enable() {
   if(ItlMissing) {
-    let _source = new PrayerNotificationSource();
+    let _source = new MessageTray.Source( _("Salat"), 'islamic-datetime');
     _source.connect('destroy', Lang.bind(_source,
       function() {
           _source = null;
