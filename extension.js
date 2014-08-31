@@ -267,6 +267,10 @@ IslamicDateTime.prototype = {
 
     _playAzan: function() {
       this._azanFlag = 1;
+      Mainloop.timeout_add_seconds(60, Lang.bind(this,
+        function() {
+            this._azanFlag = 0;
+        }));
       global.play_sound_file(1, this._azanFile, "azan", null);
     },
 
