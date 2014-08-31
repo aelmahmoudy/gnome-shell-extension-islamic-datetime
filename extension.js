@@ -212,6 +212,9 @@ IslamicDateTime.prototype = {
       }
       this._RemLabel.set_text( _(" %s left for %s prayer").format(RemStr, PrayerName(PrayerIdx)) );
 
+      // Debug stub:
+      //RemMins = 0;
+      //log(("DBG: flag=%d stopped=%d").format(this._azanFlag, this._azanStopped));
       // Play azan when now = prayertime
       if(RemMins == 5) {
         this._notify(this._RemLabel.get_text(), true);
