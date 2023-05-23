@@ -20,5 +20,5 @@ GLIB_GSETTINGS
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile po/Makefile.in])
+AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in])
 AC_OUTPUT

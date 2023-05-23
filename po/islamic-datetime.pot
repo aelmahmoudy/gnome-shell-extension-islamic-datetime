@@ -17,204 +17,204 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../extension.js:43
+#: ../src/extension.js:43
 msgid "Salat"
 msgstr ""
 
-#: ../extension.js:196
+#: ../src/extension.js:196
 msgid "Midnight"
 msgstr ""
 
-#: ../extension.js:197
+#: ../src/extension.js:197
 msgid "Last third of night"
 msgstr ""
 
-#: ../extension.js:223
+#: ../src/extension.js:223
 #, c-format
 msgid "%d minutes"
 msgstr ""
 
-#: ../extension.js:225
+#: ../src/extension.js:225
 #, c-format
 msgid "%d hours %d minutes"
 msgstr ""
 
-#: ../extension.js:227
+#: ../src/extension.js:227
 #, c-format
 msgid " %s left for %s prayer"
 msgstr ""
 
-#: ../extension.js:234
+#: ../src/extension.js:234
 #, c-format
 msgid "Time now for %s prayer"
 msgstr ""
 
-#: ../extension.js:264
+#: ../src/extension.js:264
 msgid "Stop azan"
 msgstr ""
 
-#: ../extension.js:293
+#: ../src/extension.js:293
 msgid "Muharram"
 msgstr ""
 
-#: ../extension.js:294
+#: ../src/extension.js:294
 msgid "Safar"
 msgstr ""
 
-#: ../extension.js:295
+#: ../src/extension.js:295
 msgid "Rabi' I"
 msgstr ""
 
-#: ../extension.js:296
+#: ../src/extension.js:296
 msgid "Rabi' II"
 msgstr ""
 
-#: ../extension.js:297
+#: ../src/extension.js:297
 msgid "Jumaada I"
 msgstr ""
 
-#: ../extension.js:298
+#: ../src/extension.js:298
 msgid "Jumaada II"
 msgstr ""
 
-#: ../extension.js:299
+#: ../src/extension.js:299
 msgid "Rajab"
 msgstr ""
 
-#: ../extension.js:300
+#: ../src/extension.js:300
 msgid "Shaa'ban"
 msgstr ""
 
-#: ../extension.js:301
+#: ../src/extension.js:301
 msgid "Ramadan"
 msgstr ""
 
-#: ../extension.js:302
+#: ../src/extension.js:302
 msgid "Shawwaal"
 msgstr ""
 
-#: ../extension.js:303
+#: ../src/extension.js:303
 msgid "Thul Qi'dah"
 msgstr ""
 
-#: ../extension.js:304
+#: ../src/extension.js:304
 msgid "Thul Hijjah"
 msgstr ""
 
-#: ../extension.js:312
+#: ../src/extension.js:312
 msgid "Fajr"
 msgstr ""
 
-#: ../extension.js:313
+#: ../src/extension.js:313
 msgid "Shurooq"
 msgstr ""
 
-#: ../extension.js:314
+#: ../src/extension.js:314
 msgid "Dhuhr"
 msgstr ""
 
-#: ../extension.js:315
+#: ../src/extension.js:315
 msgid "'Asr"
 msgstr ""
 
-#: ../extension.js:316
+#: ../src/extension.js:316
 msgid "Maghrib"
 msgstr ""
 
-#: ../extension.js:317
+#: ../src/extension.js:317
 msgid "'Ishaa"
 msgstr ""
 
-#: ../islamic-datetime-config:143
+#: ../src/islamic-datetime-config:143
 msgid "Gnome Shell: Islamic Date/Time Configurator"
 msgstr ""
 
 #. **  Location   **
-#: ../islamic-datetime-config:149 ../prefs.js:42
+#: ../src/islamic-datetime-config:149 ../prefs.js:42
 msgid "Longitude"
 msgstr ""
 
-#: ../islamic-datetime-config:149
+#: ../src/islamic-datetime-config:149
 msgid "Set the locations longitude"
 msgstr ""
 
-#: ../islamic-datetime-config:150 ../prefs.js:44
+#: ../src/islamic-datetime-config:150 ../prefs.js:44
 msgid "Latitude"
 msgstr ""
 
-#: ../islamic-datetime-config:150 ../prefs.js:43
+#: ../src/islamic-datetime-config:150 ../prefs.js:43
 msgid "Set the locations latitude"
 msgstr ""
 
-#: ../islamic-datetime-config:151 ../prefs.js:47
+#: ../src/islamic-datetime-config:151 ../prefs.js:47
 msgid "Time zone"
 msgstr ""
 
-#: ../islamic-datetime-config:151 ../prefs.js:45 ../prefs.js:48
+#: ../src/islamic-datetime-config:151 ../prefs.js:45 ../prefs.js:48
 msgid "Set the locations timezone"
 msgstr ""
 
 #. **  Method   **
-#: ../islamic-datetime-config:152 ../prefs.js:53
+#: ../src/islamic-datetime-config:152 ../prefs.js:53
 msgid "Calculation method"
 msgstr ""
 
-#: ../islamic-datetime-config:153 ../prefs.js:17
+#: ../src/islamic-datetime-config:153 ../prefs.js:17
 msgid "Egyptian General Authority of Survey"
 msgstr ""
 
-#: ../islamic-datetime-config:154 ../prefs.js:18
+#: ../src/islamic-datetime-config:154 ../prefs.js:18
 msgid "University of Islamic Sciences, Karachi (Shaf'i)"
 msgstr ""
 
-#: ../islamic-datetime-config:155 ../prefs.js:19
+#: ../src/islamic-datetime-config:155 ../prefs.js:19
 msgid "University of Islamic Sciences, Karachi (Hanafi)"
 msgstr ""
 
-#: ../islamic-datetime-config:156 ../prefs.js:20
+#: ../src/islamic-datetime-config:156 ../prefs.js:20
 msgid "Islamic Society of North America"
 msgstr ""
 
-#: ../islamic-datetime-config:157 ../prefs.js:21
+#: ../src/islamic-datetime-config:157 ../prefs.js:21
 msgid "Muslim World League"
 msgstr ""
 
-#: ../islamic-datetime-config:158 ../prefs.js:22
+#: ../src/islamic-datetime-config:158 ../prefs.js:22
 msgid "Umm Al-Qurra"
 msgstr ""
 
-#: ../islamic-datetime-config:159 ../prefs.js:23
+#: ../src/islamic-datetime-config:159 ../prefs.js:23
 msgid "Fixed Ishaa Interval (always 90)"
 msgstr ""
 
-#: ../islamic-datetime-config:160 ../prefs.js:24
+#: ../src/islamic-datetime-config:160 ../prefs.js:24
 msgid "Egyptian General Authority of Survey (Egypt)"
 msgstr ""
 
-#: ../islamic-datetime-config:161 ../prefs.js:54
+#: ../src/islamic-datetime-config:161 ../prefs.js:54
 msgid "Choose the prayer time calculation method"
 msgstr ""
 
-#: ../islamic-datetime-config:162 ../prefs.js:50
+#: ../src/islamic-datetime-config:162 ../prefs.js:50
 msgid "DST"
 msgstr ""
 
-#: ../islamic-datetime-config:162 ../prefs.js:50
+#: ../src/islamic-datetime-config:162 ../prefs.js:50
 msgid "Enable DST"
 msgstr ""
 
-#: ../islamic-datetime-config:163 ../prefs.js:56
+#: ../src/islamic-datetime-config:163 ../prefs.js:56
 msgid "Azan audio file"
 msgstr ""
 
-#: ../islamic-datetime-config:163 ../prefs.js:57
+#: ../src/islamic-datetime-config:163 ../prefs.js:57
 msgid "Audio file to play azan"
 msgstr ""
 
-#: ../islamic-datetime-config:164 ../prefs.js:58
+#: ../src/islamic-datetime-config:164 ../prefs.js:58
 msgid "Hijri date correction"
 msgstr ""
 
-#: ../islamic-datetime-config:164 ../prefs.js:59
+#: ../src/islamic-datetime-config:164 ../prefs.js:59
 msgid "Manual correction for Hijri date calculation"
 msgstr ""
